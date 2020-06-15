@@ -1,0 +1,308 @@
+/*ipad pro*/
+@media screen and (max-width: 1240px) {
+	#landingpage {
+		padding-right: 5%;
+		padding-left: 5%;
+	}
+	#home {
+		height: 635px;
+	}
+}
+@media screen and (max-width: 1024px) {
+	#landingpage {
+		padding-right: 2%;
+		padding-left: 2%;
+	}
+	.navbar-brand {
+		width: 20%;
+	}
+	#home {
+		padding-top: 85px;
+		height: 530px;
+	}
+	#paket .card-body {
+		padding: 20px;
+	}
+}
+/*ipad*/
+@media screen and (max-width: 768px) {
+	#landingpage {
+		padding-right: 5%;
+		padding-left: 5%;
+	}
+	.navbar-brand {
+		width: 50%;
+	}
+	#home {
+		padding-top: 85px;
+		height: 395px;
+	}
+	.title-header {
+		font-size: 28px;
+	}
+
+	#booster {
+		padding: 50px 20px 20px;
+	}
+	#booster .img-fluid {
+		margin-bottom: 20px;
+	}
+
+	#reguler {
+		padding: 50px 20px 20px;
+	}
+	#reguler .img-fluid {
+		margin-bottom: 20px;
+	}
+	.title-paket {
+		font-size: 24px;
+	}
+
+	.wrap-klien {
+		width: 100%;
+	}
+	#klien .card {
+		padding: 5px;
+	}
+	.title-klien {
+		font-size: 24px;
+	}
+	.title-daftar {
+		font-size: 24px;
+	}
+	.description-daftar {
+		font-size: 18px;
+	}
+
+	#testimoni {
+		padding: 40px 20px;
+	}
+	.testim .wrap {
+		padding: 20px;
+	}
+	.testim .cont div p {
+		width: 90%;
+	}
+
+	#footer .image-footer {
+		width: 250px;
+	}
+	#about-footer .af-info {
+		font-size: 16px;
+	}
+	.title {
+		font-size: 34px;	
+	}
+	.video-us {
+		height: 390px;
+	}
+	.subtitle {
+		font-size: 28px;
+		margin-top: 15px;
+	}
+	.subcontent {
+		font-size: 18px;
+	}
+	.col-md-1.ipad {
+		display: none;
+	}
+	.single-widget.widget-contact ul li a {
+		font-size: 14px;
+	}
+
+	.img-fluid.login {
+		display: block;
+		position: unset;
+		max-width: 80%;
+		max-height: 80%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	.modal-body.login button.close {
+		font-size: 40px;
+	}
+	#wrapping {
+		padding: 120px 40px 40px;
+	}
+	#dashboard {
+		padding: 120px 30px 40px;
+	}
+	#paket {
+		padding: 120px 40px 40px;
+	}
+
+	#pembayaran {
+		padding: 120px 40px 40px;
+	}
+	.title-pembayaran {
+		font-size: 28px;
+	}
+
+	#soal {
+		padding: 120px 40px 40px;
+	}
+	#soal .card {
+		margin: 0px 20px;
+	}
+
+	#latihan {
+		padding: 120px 0px 40px;
+	}
+}
+
+/*mobile*/
+@media screen and (max-width: 575px) {
+	.navbar-brand {
+		width: 70%;
+	}
+	.img-fluid.logo {
+		width: 80%;
+	}
+	#home {
+		padding: 90px 15px 25px;
+		height: 630px;
+		background: url(../images/bg-banner-mobile.jpg);
+		background-size: cover;
+		background-position: bottom;
+	}
+	.description-header {
+		font-size: 18px;
+	}
+	.enter {
+		display: none;
+	}
+
+	.title-paket {
+		text-align: center;
+		font-size: 28px;
+	}
+	.description-paket {
+		text-align: center;
+		font-size: 18px;
+	}
+	.btn-danger.color {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	#klien {
+		padding: 40px 10px;
+	}
+	#klien .card {
+		margin-bottom: 26px;
+	}
+	.title-klien {
+		font-size: 28px;
+	}
+	.title-daftar {
+		font-size: 28px;
+	}
+
+	#testimoni {
+		padding: 50px 0px 0px;
+	}
+	.testim .dots {
+		width: 90%;
+		padding-top: 20px;
+	}
+
+	#daftar {
+		padding: 40px 10px;
+	}
+
+	#bgputih {
+		margin: 20px 10px;
+	}
+	#footer {
+		padding-top: 30px;
+		padding-bottom: 1px;
+	}
+	.description-footer {
+		font-size: 18px;
+		margin-bottom: 30px;
+	}
+	.single-widget.widget-contact ul li a {
+		font-size: 18px;
+	}
+
+	.modal-body.login {
+		padding: 20px;
+	}
+	.img-fluid.login {
+		max-width: 60%;
+	}
+	.modal-body.login button.close {
+		font-size: 40px;
+		margin-top: -10px;
+		margin-left: 300px;
+		position: fixed;
+		z-index: 1;
+	}
+	.title-login {
+		text-align: center;
+	}
+	.line-login {
+		position: inherit;
+	}
+	.description-login {
+		margin-top: 20px;
+		text-align: center;
+	}
+
+	#wrapping {
+		padding: 100px 20px 25px;
+	}
+	#wrapping .row.wrap {
+		padding: 40px 0px;
+	}
+
+	#dashboard {
+		padding: 100px 20px 25px;
+	}
+	#dashboard .col-md-3.dash {
+		margin-bottom: 22px;
+	}
+	#dashboard .col-md-9.dash {
+		padding: 0
+	}
+	#dashboard .dash-banner {
+		display: none;
+	}
+
+	#paket {
+		padding: 100px 20px 25px;
+	}
+	#paket .nav-pills.paket {
+		font-size: 14px;
+	}
+
+	#pembayaran {
+		padding: 100px 20px 25px;
+	}
+	.title-pembayaran {
+		margin: 15px;
+	}
+	.table.pembayaran {
+		margin: 15px 15px 40px;
+	}
+	.title-pembayaran {
+		font-size: 24px;
+	}
+	.float-right.pembayaran {
+		float: left!important;
+	}
+	#pembayaran .form-wrap {
+		width: 100%;
+		margin: 15px 15px 25px;
+	}
+
+	#soal {
+		padding: 100px 20px 25px;
+	}
+	#soal .card {
+	    margin: 0px;
+	}
+}
