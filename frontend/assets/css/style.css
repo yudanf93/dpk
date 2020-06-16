@@ -1,0 +1,489 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.my-wa {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  bottom: 30px;
+  right: 20px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 35px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+a.my-wa:hover {
+  background-color: #1bab51;
+  color:#fefefe;
+}
+/*navbar*/
+.navbar {
+  padding: 15px 50px;
+  background-color: #fff;
+}
+.navbar .brand-navbar img:hover{
+  opacity: 0.7;
+}
+.navbar ul{
+  padding: 0px 30px 0px 0px;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+  font-size: 16px;
+  color: #9E9E9E;
+}
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+  color: #9E9E9E;
+}
+.navbar ul li a .fas{
+  padding-right:5px; 
+  padding-left:5px; 
+}
+.navbar ul li a:hover{
+  color: #91A440;
+}
+.navbar ul li.active > a {
+  color: #91A440;
+}
+.input-group.cari {
+  width: 250px;
+}
+.navbar i.fa-align-right.iconStyle {
+  color: #9e9e9e;
+}
+.btn-success.c {
+  background-color: #91A440;
+  border-color: #91A440;
+}
+.btn-success.c:hover {
+  background-color: #889a3c;
+  border-color: #889a3c;
+}
+
+/*home*/
+#header {
+  background: url(../images/header.jpg);
+  background-size: cover;
+  padding: 125px 0px;
+}
+.title-header {
+  color: #fff;
+  text-align: center;
+}
+.description-header {
+  font-size: 21px;
+  text-align: center;
+  color: #fff;
+}
+.form-header {
+  margin-top: 10px;
+  padding: 0 40px;
+}
+.subtitle-header {
+  color: #fff;
+  font-size: 24px;
+}
+.btn.btn-success.c.professional {
+  width: 100%
+}
+.custom-select.prof {
+  margin-bottom: 15px;
+}
+
+#langkah {
+  padding: 40px 20px;
+}
+.bungkus-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #91a440;
+}
+.bungkus-img2 {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #283F49;
+}
+.img-fluid.bk {
+  padding-top: 20px;
+  width: 50%;
+}
+.bungkus {
+  margin-top: -50px;
+  background-color: #91A440;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+.bungkus2 {
+  margin-top: -50px;
+  background-color: #283F49;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+.step {
+  float: right;
+}
+.bungkus-title {
+  font-size: 22px;
+}
+.bungkus-description {
+  font-size: 18px;
+}
+.titleh2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #393939;
+}
+.titleh3 {
+  font-size: 22px;
+  color: #393939;
+}
+
+#profesi {
+  padding: 40px 20px;
+  background-color: #f0f0f0;
+}
+.description-profesi {
+  color: #C4C4C4;
+}
+
+#blog {
+  padding: 40px 50px;
+}
+#blog .card {
+  margin-bottom: 30px;
+  border-color: #b6b6b6;
+  border-radius: 0;
+  padding: 3px;
+}
+#blog .card-body {
+  padding: 15px 5px;
+}
+#blog .card-body h3 {
+  padding: 0px 10px;
+}
+#blog .card .card-text {
+  padding: 0px 10px;
+  color: #C4C4C4;
+}
+.float-left.date {
+  margin-left: 10px;
+  margin-top: 8px;
+  color: #9E9E9E;
+}
+.float-right.det {
+  margin-right: 10px;
+}
+
+/*halaman blog*/
+#banner {
+  background: url(../images/header-banner.jpg);
+  background-size: cover;
+  margin: auto;
+  padding: 90px 0;
+}
+.banner-title {
+  text-align: center;
+  color: #fff;
+}
+.cari-artikel {
+  border: 1px solid #b6b6b6;
+  background-color: #91A440;
+  padding: 8px 10px;
+  margin-bottom: 20px;
+}
+.kategori {
+  border: 1px solid #b6b6b6;
+  padding: 15px 20px 5px;
+}
+.kategori ul {
+  padding-left: 0;
+  list-style: none;
+  color: #9E9E9E;
+}
+
+/*halaman detail artikel*/
+.img-fluid.artikel {
+  margin-bottom: 20px;
+}
+.artikel-title {
+  color: #393939;
+}
+.float-right.date {
+  color: #9E9E9E;
+  margin-top: 10px;
+}
+
+/*footer*/
+#footer {
+  background-color: #f0f0f0;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #000;
+}
+#footer .image-footer {
+  margin-bottom: 10px;
+}
+#footer .widget-title {
+  padding-top: 20px;
+  color: #393939;
+}
+#footer .af-contact {
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+#about-footer h4 {
+  font-family: minionpro;
+  font-weight: bold;
+}
+#about-footer .af-info {
+  color: #747474;
+  text-decoration: none;
+  font-size: 18px;
+}
+.description-footer {
+  color: #747474;
+}
+.copyright-text {
+  text-align: center;
+  color: #747474;
+  font-size: 18px;
+}
+.single-widget.widget-contact ul {
+  padding: 5px 0px 0px;
+}
+.single-widget.widget-contact ul li {
+  color: #000;
+  font-size: 13px;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.single-widget.widget-contact ul li span {
+  font-size: 24px;
+  color: #747474;
+  height: 32px;
+  width: 32px;
+  display: inline-block;
+  line-height: 28px;
+  text-align: center;
+  margin-right: 7px;
+}
+.single-widget.widget-contact ul li a {
+  color: #777777;
+  font-size: 16px;
+}
+.single-widget.widget-contact ul li.phone, .single-widget.widget-contact ul li.fax {
+  font-size: 15px;
+}
+.single-widget.widget-contact ul li + li {
+  margin-top: 10px;
+}
+.sosm {
+  color: #747474;
+  font-size: 28px;
+  margin-right: 10px;
+}
+
+/*login*/
+.modal-body.login {
+  padding: 40px 50px;
+}
+.modal-body.login button.close {
+  margin-top: -28px;
+}
+.modal-body.login .btn-success.c {
+  width: 100%;
+  margin-bottom:20px;
+}
+.title-login {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.link.login {
+  text-align: center;
+}
+.link.login a{
+  color: #91A440;
+}
+
+/*halaman profil professional*/
+.profil {
+  border: 1px solid #b6b6b6;
+  padding: 22px 40px;
+}
+.img-fluid.professional {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.single-profil {
+  padding: 5px 0px 0px
+}
+.single-profil ul {
+  display: block;
+  padding-left: 2px;
+}
+.single-profil ul li {
+  display: block;
+  margin-bottom: 6px;
+  color: #393939;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.single-profil ul li a {
+  margin-top: 0px;
+  display: block;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.single-profil ul li a span.icon {
+  width: 50px;
+  display: block;
+  font-size: 22px;
+  text-align: center;
+  vertical-align: middle;
+  float: left;
+}
+.single-profil ul li a span.text {
+  display: block;
+  vertical-align: middle;
+  font-size: 20px;
+  margin-left: 50px;
+}
+
+/*manajemen artikel*/
+.tambah-artikel {
+  border: 1px solid #b6b6b6;
+  padding: 25px 20px;
+  margin-bottom: 20px;
+}
+.title-manajemen {
+    color: #C4C4C4;
+}
+.btn.btn-success.c.wd {
+    width: 100%;
+}
+.float-right.spec {
+    color: red;
+    font-size: 12px;
+    text-align: right;
+    margin-top: -15px;
+}
+
+/*pencarian professional*/
+#header2 {
+  background: url(../images/header-pencarian.jpg);
+  background-size: cover;
+  padding: 125px 0px;
+}
+.MakaleYazariAdi{
+    line-height:34px;
+}
+#BegeniButonlari{
+    float:right;
+    margin-top:15px;
+}
+.media-left {
+    width: 38%;
+}
+.media-left .img-fluid {
+  border-radius: 50%;
+  padding: 15px;
+}
+.media-body {
+    padding: 10px 5px 0;
+}
+.media-body .titleh3 {
+  font-size: 18px;
+}
+.single-profil2 {
+  padding: 5px 0px 0px
+}
+.single-profil2 ul {
+  display: block;
+  padding-left: 2px;
+}
+.single-profil2 ul li {
+  display: block;
+  margin-bottom: 6px;
+  color: #393939;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.single-profil2 ul li a {
+  margin-top: 0px;
+  display: block;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.single-profil2 ul li a span.icon {
+  width: 50px;
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+  float: left;
+}
+.single-profil2 ul li a span.text {
+  display: block;
+  vertical-align: middle;
+  font-size: 14px;
+  margin-left: 50px;
+}
+#blog .card-body.b {
+    padding: 0 0 12px;
+    margin-top: -20px;
+}
+
+/*edit profil*/
+.img-fluid.edp {
+    width: 150px;
+    border-radius: 50%;
+}
+
+/*panduan*/
+.table.panduan td, .table.panduan th {
+  vertical-align: inherit;
+  border-top: 0;
+  padding: 5px;
+}
+.col-panduan {
+  width: 80px;
+  text-align: center;
+}
+.col-panduan .img-fluid.panah {
+  width: 15px;
+}
