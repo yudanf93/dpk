@@ -57,9 +57,11 @@ class Relation_profesi extends CI_Controller {
 			}
 		}
 
-	public function edit($id_kategori_artikel) {
-		$edit  = $this->M_relation_profesi->detail($id_kategori_artikel); 
-		$kategori_artikel = $this->M_relation_profesi->select_kategori_artikel();
+	public function edit($id_relation_profesi) { 
+		$edit  = $this->M_relation_profesi->detail($id_relation_profesi); 
+		$relasi = $this->M_relation_profesi->select_relation_profesi();
+		$artikel = $this->M_artikel->select_artikel();
+		$sub = $this->M_sub_kategori_profesi->select_sub_kategori_profesi();
 
 		$valid = $this->form_validation;
 		$valid->set_rules(
@@ -73,22 +75,23 @@ class Relation_profesi extends CI_Controller {
 		if ($valid->run()===false) {  
 			$data = array(
 				'title' => 'Dashboard Admin DPK',
-				'isi' 	=> 'admin/kategori_artikel_e',
-				'kategori_artikel'     => $kategori_artikel,
+				'isi' 	=> 'admin/relation_profesi_e',
+				'relasi'=> $relasi,
+				'artikel'=> $artikel,
+				'sub'   => $sub,
 				'edit'  => $edit
 			);       
 			$this->load->view("admin/layout/wrapper", $data, false);
 		}else{ 				
-				$i  = $this->input;
-				$slug = url_title($this->input->post('nama_kategori_artikel'), 'dash', TRUE);
-				$data = array(
-					'nama_kategori_artikel' =>  $i->post('nama_kategori_artikel'),
-					'slug_kategori_artikel' =>  $slug
-				);
+			$i = $this->input;
+			$data = array(
+				'id_artikel' =>  $i->post('id_artikel'),
+				'id_sub_kategori_profesi' =>  $i->post('id_sub_kategori_profesi')
+			);
 
-				$this->M_relation_profesi->edit($data,$id_kategori_artikel);
+				$this->M_relation_profesi->edit($data,$id_relation_profesi);
 				$this->session->set_flashdata('notifikasi', '<center>Berhasil Merubah <strong> Data Kategori Artikel</strong></center>');
-				redirect('/admin/kategori_artikel/edit/'.$edit->id_kategori_artikel);
+				redirect('/admin/relation_profesi/edit/'.$edit->id_relation_profesi);
 			}
 		}
 
