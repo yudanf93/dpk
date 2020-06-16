@@ -1,0 +1,120 @@
+@media screen and (max-width: 1240px) {
+}
+/*ipad pro*/
+@media screen and (max-width: 1024px) {
+}
+/*ipad*/
+@media screen and (max-width: 768px) {
+	.navbar {
+		padding: 15px 30px;
+	}
+	.navbar ul {
+	    margin-top: 15px;
+	}
+	.input-group.cari {
+		width: 300px;
+		padding-top: 10px;
+	}
+
+	#header {
+		padding: 70px 0;
+	}
+
+	.float-left.date {
+    	font-size: 14px;
+    }
+
+    #blog {
+	    padding: 40px 20px;
+	}
+	.titleh3.panduan {
+		padding-top: 20px;
+	}
+}
+/*mobile*/
+@media screen and (max-width: 575px) {
+	.navbar {
+		padding: 15px;
+	}
+	.input-group.cari {
+		width: 100%;
+	}
+	.modal-body.login {
+	    padding: 40px 15px;
+	}
+
+	#header {
+		padding: 50px 5px;
+	}
+	.title-header {
+		font-size: 24px;
+	}
+	.description-header {
+	    font-size: 17px;
+	}
+	.form-header {
+		margin-top: 0;
+		padding: 0;
+	}
+	.subtitle-header {
+		font-size: 20px;
+	}
+
+	.mob.top {
+	    margin-top: 0px;
+	}
+	.mob {
+	    margin-top: -50px;
+	}
+
+	#profesi {
+		padding: 40px 5px;
+	}
+
+	#blog {
+		padding: 30px 15px
+	}
+	.banner-title {
+	    font-size: 26px;
+	}
+	.float-left.date {
+    	font-size: 16px;
+    }
+    .float-right.share {
+	    padding: 20px 0;
+	    float: unset!important;
+	    text-align: center;
+	}
+
+    #footer {
+		padding: 30px 5px;
+	}
+	#footer .widget-title {
+	    padding-top: 8px;
+	}
+	.copyright-text {
+		margin-top: 15px;
+		margin-bottom: 0;
+	}
+
+	.profil {
+	    padding: 20px;
+	}
+	.img-fluid.professional {
+	    display: block;
+	    position: unset;
+	    max-width: 100%;
+	    max-height: 100%;
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-top: 20px;
+	    margin-bottom: 20px;
+	}
+
+	#header2 {
+	    padding: 65px 0px;
+	}
+}
+/*old vertion*/
+@media screen and (max-width: 321px) {
+}

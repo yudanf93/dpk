@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="in">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/media.css">
+    <link rel="icon" href="assets/images/favicon.png">
+    <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <title>Direktori Profesi Keuangan</title>
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="<?php echo $title; ?>" />
+    <meta name="twitter:title" content="<?php echo $title; ?>" />
+    <meta name="twitter:site" content="@hairil_sp" />
+    <meta name="keywords" content="<?php echo $metades; ?>">
+    <meta name="description" content="<?php echo $metades; ?>">
+    <meta itemprop="description" content="<?php echo $metades; ?>">
+    <meta name="twitter:description" content="<?php echo $metades; ?>">
+    <meta property="og:description" itemprop="description" content="<?php echo $metades; ?>">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navStyle sticky-top">
+      <a class="brand-navbar" href="index.html">
+        <img class="img-fluid logo" src="assets/images/logo-perusahaan.png" alt="logo-perusahaan">
+      </a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
+          <span><i class="fa fa-align-right iconStyle"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainMenu">
+          <ul class="navbar-nav ml-auto navList">
+              <li class="nav-item active">
+                <a href="index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a href="pencarian-professional.html" class="nav-link">Temukan</a>
+              </li>
+              <li class="nav-item">
+                  <a href="panduan.html" class="nav-link">Panduan</a>
+              </li>
+              <li class="nav-item">
+                  <a href="blog.html" class="nav-link">Blog</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" data-toggle="modal" data-target="#daftar-start">Daftar</a>
+              </li>
+          </ul>
+          <a class="mr-3" data-toggle="modal" data-target="#login-start"><button class="btn btn-success c my-2 my-sm-0">Login</button></a>
+          <div class="input-group cari">
+            <input type="text" class="form-control" name="" id="" placeholder="Searching....">
+            <div class="input-group-append">
+              <button class="btn btn-success c" type="button">Search</button>
+            </div>
+          </div>
+      </div>
+  </nav>
+
+  <!-- popup login -->
+  <div class="modal fade" id="login-start" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body login">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="title-login">Login</h3>
+              <form action="profil.html">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-success c login pl-5 pr-5">Login</button>
+              </form>
+              <div class="link login">
+                <p>Belum punya akun? <a data-toggle="modal" data-target="#daftar-start">Daftar</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- popup daftar -->
+  <div class="modal fade" id="daftar-start" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body login">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="title-login">Daftar</h3>
+              <form action="profil.html">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="" placeholder="No. registrasi">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="" placeholder="Nama Lengkap">
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" id="" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="" placeholder="Konfirmasi Password">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile02">
+                    <label class="custom-file-label" for="inputGroupFile02">Lampirkan surat izin</label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-success c login pl-5 pr-5">Daftar</button>
+              </form>
+              <div class="link login">
+                <p>Sudah punya akun? <a data-toggle="modal" data-target="#login-start">Login</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- header -->
+  <div id="header2">
+    <div class="container">
+      <div class="row justify-content-center">
+        <h1 class="title-header">Hasil Pencarian profesional</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <form class="form-header" action="professional.html">
+            <div class="form-row">
+              <div class="col-md-4">
+                <select class="custom-select prof">
+                  <option selected>Perencana Keuangan</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <select class="custom-select prof">
+                  <option selected>Jakarta</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <a href="pencarian-professional.html"><button type="button" class="btn btn-success c professional"><i class="fa fa-search"></i> Cari Profesional</button></a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="blog">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="media">
+              <div class="media-left">
+                <img src="assets/images/user-profil.jpg" class="img-fluid" alt="profil-user">
+              </div>
+              <div class="media-body">
+                <h3 class="titleh3">Alex Ferguson, S.Ak</h3>
+                <div class="container single-profil2">
+                  <div class="row">
+                    <ul class="links">
+                      <li><a>
+                        <span class="icon"><i class="fa fa-briefcase"></i></span>
+                        <span class="text">Bidang Akuntansi</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                      <li><a>
+                        <span class="icon"><i class="fa fa-list"></i></span>
+                        <span class="text">10 artikel</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                      <li><a>
+                        <span class="icon"><i class="fa fa-hand-o-up"></i></span>
+                        <span class="text">100 kali klik pesan</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>           
+              </div>
+            </div>
+            <div class="card-body b">
+              <hr>
+              <div class="float-left date">
+                <i class="fa fa-map-marker"></i> Jakarta
+              </div>
+              <div class="float-right det">
+                <a href="detail-professional.html"><button type="button" class="btn btn-success c">Detail</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="media">
+              <div class="media-left">
+                <img src="assets/images/user-profil.jpg" class="img-fluid" alt="profil-user">
+              </div>
+              <div class="media-body">
+                <h3 class="titleh3">Alex Ferguson, S.Ak</h3>
+                <div class="container single-profil2">
+                  <div class="row">
+                    <ul class="links">
+                      <li><a>
+                        <span class="icon"><i class="fa fa-briefcase"></i></span>
+                        <span class="text">Bidang Akuntansi</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                      <li><a>
+                        <span class="icon"><i class="fa fa-list"></i></span>
+                        <span class="text">10 artikel</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                      <li><a>
+                        <span class="icon"><i class="fa fa-hand-o-up"></i></span>
+                        <span class="text">100 kali klik pesan</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>           
+              </div>
+            </div>
+            <div class="card-body b">
+              <hr>
+              <div class="float-left date">
+                <i class="fa fa-map-marker"></i> Jakarta
+              </div>
+              <div class="float-right det">
+                <a href="detail-professional.html"><button type="button" class="btn btn-success c">Detail</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="media">
+              <div class="media-left">
+                <img src="assets/images/user-profil.jpg" class="img-fluid" alt="profil-user">
+              </div>
+              <div class="media-body">
+                <h3 class="titleh3">Alex Ferguson, S.Ak</h3>
+                <div class="container single-profil2">
+                  <div class="row">
+                    <ul class="links">
+                      <li><a>
+                        <span class="icon"><i class="fa fa-briefcase"></i></span>
+                        <span class="text">Bidang Akuntansi</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                      <li><a>
+                        <span class="icon"><i class="fa fa-list"></i></span>
+                        <span class="text">10 artikel</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                      <li><a>
+                        <span class="icon"><i class="fa fa-hand-o-up"></i></span>
+                        <span class="text">100 kali klik pesan</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>           
+              </div>
+            </div>
+            <div class="card-body b">
+              <hr>
+              <div class="float-left date">
+                <i class="fa fa-map-marker"></i> Jakarta
+              </div>
+              <div class="float-right det">
+                <a href="detail-professional.html"><button type="button" class="btn btn-success c">Detail</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="media">
+              <div class="media-left">
+                <img src="assets/images/user-profil.jpg" class="img-fluid" alt="profil-user">
+              </div>
+              <div class="media-body">
+                <h3 class="titleh3">Alex Ferguson, S.Ak</h3>
+                <div class="container single-profil2">
+                  <div class="row">
+                    <ul class="links">
+                      <li><a>
+                        <span class="icon"><i class="fa fa-briefcase"></i></span>
+                        <span class="text">Bidang Akuntansi</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                      <li><a>
+                        <span class="icon"><i class="fa fa-list"></i></span>
+                        <span class="text">10 artikel</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                      <li><a>
+                        <span class="icon"><i class="fa fa-hand-o-up"></i></span>
+                        <span class="text">100 kali klik pesan</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>           
+              </div>
+            </div>
+            <div class="card-body b">
+              <hr>
+              <div class="float-left date">
+                <i class="fa fa-map-marker"></i> Jakarta
+              </div>
+              <div class="float-right det">
+                <a href="detail-professional.html"><button type="button" class="btn btn-success c">Detail</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="media">
+              <div class="media-left">
+                <img src="assets/images/user-profil.jpg" class="img-fluid" alt="profil-user">
+              </div>
+              <div class="media-body">
+                <h3 class="titleh3">Alex Ferguson, S.Ak</h3>
+                <div class="container single-profil2">
+                  <div class="row">
+                    <ul class="links">
+                      <li><a>
+                        <span class="icon"><i class="fa fa-briefcase"></i></span>
+                        <span class="text">Bidang Akuntansi</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                      <li><a>
+                        <span class="icon"><i class="fa fa-list"></i></span>
+                        <span class="text">10 artikel</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                      <li><a>
+                        <span class="icon"><i class="fa fa-hand-o-up"></i></span>
+                        <span class="text">100 kali klik pesan</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>           
+              </div>
+            </div>
+            <div class="card-body b">
+              <hr>
+              <div class="float-left date">
+                <i class="fa fa-map-marker"></i> Jakarta
+              </div>
+              <div class="float-right det">
+                <a href="detail-professional.html"><button type="button" class="btn btn-success c">Detail</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="media">
+              <div class="media-left">
+                <img src="assets/images/user-profil.jpg" class="img-fluid" alt="profil-user">
+              </div>
+              <div class="media-body">
+                <h3 class="titleh3">Alex Ferguson, S.Ak</h3>
+                <div class="container single-profil2">
+                  <div class="row">
+                    <ul class="links">
+                      <li><a>
+                        <span class="icon"><i class="fa fa-briefcase"></i></span>
+                        <span class="text">Bidang Akuntansi</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                      <li><a>
+                        <span class="icon"><i class="fa fa-list"></i></span>
+                        <span class="text">10 artikel</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                      <li><a>
+                        <span class="icon"><i class="fa fa-hand-o-up"></i></span>
+                        <span class="text">100 kali klik pesan</span></a>
+                        <div class="clearfix"></div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>           
+              </div>
+            </div>
+            <div class="card-body b">
+              <hr>
+              <div class="float-left date">
+                <i class="fa fa-map-marker"></i> Jakarta
+              </div>
+              <div class="float-right det">
+                <a href="detail-professional.html"><button type="button" class="btn btn-success c">Detail</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Prev</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <img class="image-footer" src="assets/images/logo-perusahaan.png" alt="logo-perusahaan">
+          <p class="description-footer">
+          Direktori Profesi Keuangan (DPK) adalah portal informasi para professional bidang keuangan yang bermanfaat bagi pelaku bisnis untuk menemukan profesi yang dibutuhkan sesuai dengan permasalahan yang dihadapinya. DPK berfungsi mempertemukan antara professional dengan pelaku bisnis.</p>
+        </div>
+        <div class="col-md-2" id="about-footer">
+          <div class="single-widget widget-contact">
+            <h5 class="widget-title">Blog</h5>
+            <ul>
+              <li>
+                  <a href="panduan.html">Panduan</a>
+              </li>
+              <li>
+                  <a href="#">Kategori 1</a>
+              </li>
+              <li>
+                  <a href="#">Kategori 2</a>
+              </li>
+              <li>
+                  <a href="#">Kategori 3</a>
+              </li>
+              <li>
+                  <a href="#">Kategori 4</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="single-widget widget-contact">
+            <h5 class="widget-title">Hubungi Kami</h5>
+            <ul>
+              <li class="phone">
+                  <span class="icon"><i class="fa fa-phone"></i></span>
+                  <a href="callto:02657297930">(0265) 7297930</a>
+              </li>
+              <li class="phone">
+                  <span class="icon"><i class="fa fa-whatsapp"></i></span>
+                  <a href="wa.me/6282231888840">+6282231888840</a>
+              </li>
+              <li class="fax">
+                  <span class="icon"><i class="fa fa-envelope-o"></i></span>
+                  <a href="mailto:admin@dpk.com ">admin@dpk.com </a>
+              </li>
+              <li class="email">
+                  <span class="icon"><i class="fa fa-map-o"></i></span>
+                  <a href="#">Jakarta, Daerah Khusus Ibukota Jakarta </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="single-widget widget-contact">
+            <h5 class="widget-title">Sosial Media</h5>
+            <a href="#" class="sosm"><i class="fa fa-linkedin"></i></a>
+            <a href="#" class="sosm"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="sosm"><i class="fa fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div id="copyright">
+        <p class="copyright-text">Copyright &copy DPK 2020</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- javascript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- tambahan -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+  <script type="text/javascript">
+   $(document).ready(function() {
+      $('#example').DataTable();
+    } );
+  </script>
+</body>
+</html>
