@@ -7,7 +7,7 @@
 				<button class="btn btn-sm btn-outline-success">Kembali</button></a>
 
 			</div>
-
+   
 		</div>  
     <?php
     echo validation_errors('<div class="alert alert-danger">', '</div>');
@@ -27,7 +27,7 @@
 						<div class="form-group">
 							<label>Expert Artikel</label>
 							<textarea rows="2" cols="40" name="expert_artikel" placeholder="Masukkan Expert Artikel" class="form-control" required></textarea>
-						</div>
+						</div>  
 						<div class="form-group">
 							<label>Detail Artikel</label>
 							<br><textarea id="editor1"  name="detail_artikel" placeholder="Masukkan Detail Artikel" required></textarea>

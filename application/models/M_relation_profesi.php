@@ -8,9 +8,10 @@ class M_relation_profesi extends CI_Model {
 		$this->load->database();
 	}   
 
-	public function select_relation_profesi() {
+	public function select_relation_profesi($id_artikel) {
 		$this->db->select('relation_profesi.*, sub_kategori_profesi.*, artikel.*');   
 		$this->db->from('relation_profesi');
+		$this->db->where('relation_profesi.id_artikel', $id_artikel);
 		$this->db->join('sub_kategori_profesi', 'sub_kategori_profesi.id_sub_kategori_profesi = relation_profesi.id_sub_kategori_profesi', 'left');
 		$this->db->join('artikel', 'artikel.id_artikel = relation_profesi.id_artikel', 'left');
 		$this->db->order_by('id_relation_profesi', 'DESC');
@@ -28,8 +29,9 @@ class M_relation_profesi extends CI_Model {
 	}
 
 	public function detail($id_relation_profesi) {
-		$this->db->select('*');
+		$this->db->select('relation_profesi.*, artikel.*');
 		$this->db->from('relation_profesi');
+		$this->db->join('artikel', 'artikel.id_artikel = relation_profesi.id_artikel', 'left');
 		$this->db->where('id_relation_profesi', $id_relation_profesi);
 		$query  = $this->db->get();
 		return $query->row();

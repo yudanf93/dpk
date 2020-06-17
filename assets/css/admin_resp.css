@@ -40,17 +40,17 @@ a:focus {
   outline: none !important;
   border: none;
 }
-
+      
 .btn.focus, .btn:focus {
   box-shadow: none;
 }
 
 .navbar-header .btn-info {
-  background-color:  #00b33c;
+  background-color:  #91a440;
 }
 
 .navbar-header .btn-info:hover {
-  background-color: #002966;
+  background-color: #446600;
 }
 
 .line {
@@ -69,7 +69,7 @@ a:focus {
       top: 0;
       left: 0;
       height: 100vh;
-      background:  #00b33c;
+      background:  #91a440;
       color: #fff !important;
       transition: all 0.3s;
       overflow-y: auto;
@@ -83,7 +83,7 @@ a:focus {
     
     #sidebar .sidebar-header {
       padding: 20px 20px 0px ;
-      background:  #00b33c;
+      background:  #91a440;
     }
     
     #sidebar ul p {
@@ -98,14 +98,14 @@ a:focus {
     }
     
     #sidebar ul li a:hover {
-      color:  #00b33c;
+      color:  #91a440;
       background: #fff;
     }
     
     #sidebar ul li.active>a,
     a[aria-expanded="true"] {
       color: #fff;
-      background: #00b33c;
+      background: #91a440;
     }
     
     a[data-toggle="collapse"] {
@@ -153,7 +153,7 @@ a:focus {
       ul ul a {
         font-size: 0.9em !important;
         padding-left: 30px !important;
-        background:  #00b33c;
+        background:  #91a440;
       }
 
       ul.CTAs {
@@ -175,7 +175,7 @@ a:focus {
 
       a.article,
       a.article:hover {
-        background:  #00b33c !important;
+        background:  #91a440 !important;
         color: #fff !important;
       }
     /* ---------------------------------------------------
@@ -232,5 +232,5 @@ a:focus {
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #00b33c;    
+      background: #91a440;    
     }

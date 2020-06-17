@@ -11,7 +11,7 @@ class Relation_profesi extends CI_Controller {
 		$this->load->model('M_sub_kategori_profesi');
 	}
 
-	public function index() {  
+	public function index() {    
 		$relasi = $this->M_relation_profesi->select_relation_profesi();
 		$data = array(
 			'title' => 'Dashboard Admin DPK',
@@ -55,7 +55,7 @@ class Relation_profesi extends CI_Controller {
 				$this->session->set_flashdata('notifikasi', '<center>Berhasil Menambahkan data <strong> Relasi Profesi Baru</strong></center>');
 				redirect('/admin/relation_profesi/add/');
 			}
-		}
+		}    
 
 	public function edit($id_relation_profesi) { 
 		$edit  = $this->M_relation_profesi->detail($id_relation_profesi); 

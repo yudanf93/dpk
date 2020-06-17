@@ -31,9 +31,10 @@ class Login extends CI_Controller {
     if ($valid->run() == false) {
       $data = array(
         'title'   => 'Login Direktori Profesi Keuangan',
-        'metades' => 'Direktori Profesi Keuangan'
+        'metades' => 'Direktori Profesi Keuangan',
+        'isi'   => 'index'
       );  
-      $this->load->view('login_v', $data, false);
+      $this->load->view('layout/wrapper', $data, false);
     } else {   
       $i            = $this->input;
       $email        = $i->post('email_user');     
@@ -51,13 +52,13 @@ class Login extends CI_Controller {
         if($this->session->userdata('akses_level') == 'admin'){
           redirect(site_url('admin/dashboard'), 'refresh');
         }else if($this->session->userdata('akses_level') == 'user'){
-          redirect(site_url('user'), 'refresh');
+          redirect(site_url('user/profil'), 'refresh');
         }
           
       } else {
         $this->session->set_userdata('online',false);
         $this->session->set_flashdata('notifikasi', '<center>Email dan password tidak cocok... !</center>');
-        redirect(site_url('login'), 'refresh');
+        redirect(site_url('home'), 'refresh');
       }
     }
   }
@@ -68,7 +69,7 @@ class Login extends CI_Controller {
     $this->session->unset_userdata('nama_user');
     $this->session->sess_destroy();
     $this->session->set_flashdata('notifikasi', '<center>Anda berhasil logout</center>');
-    redirect(site_url('login'),'refresh');
+    redirect(site_url('home'),'refresh');
   }
 
 }

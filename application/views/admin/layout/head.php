@@ -22,10 +22,10 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <!-- favicon --> 
     
-    <link id="favicon" rel="shortcut icon" href="https://img.icons8.com/officel/16/000000/money.png" type="image/png" />
-  <link rel="apple-touch-icon" sizes="194x194" href="<?php echo base_url('assets/images/favicon.png') ?>" type="image/png" />
+    <link id="favicon" rel="shortcut icon" href="<?php echo base_url('assets/frontend/assets/images/favicon.png') ?>" type="image/png" />
+    <link rel="apple-touch-icon" sizes="194x194" href="<?php echo base_url('assets/frontend/assets/images/favicon.png') ?>" type="image/png" />
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="<?php echo base_url('assets/img/favicon') ?>/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="<?php echo base_url('assets/frontend/assets/images/favicon') ?>/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>  
