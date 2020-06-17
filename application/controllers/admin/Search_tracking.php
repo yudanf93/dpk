@@ -7,6 +7,8 @@ class Search_tracking extends CI_Controller {
   {
     parent::__construct();
     $this->load->model('M_search_tracking');
+    $this->load->model('M_sub_kategori_profesi');
+    $this->load->model('M_kategori_profesi');
   }
 
   public function index() { 
@@ -20,79 +22,64 @@ class Search_tracking extends CI_Controller {
     $this->load->view("admin/layout/wrapper", $data, false);
   }   
 
-  public function add() {  
-    $profesi = $this->M_kategori_profesi->select_kategori_profesi();
+  public function edit($id_search_tracking) {
+    $edit  = $this->M_search_tracking->detail($id_search_tracking); 
+    $sub  = $this->M_sub_kategori_profesi->select_sub_kategori_profesi(); 
+    $kategori  = $this->M_kategori_profesi->select_kategori_profesi(); 
 
     $valid = $this->form_validation;
     $valid->set_rules(
-      'nama_kategori_profesi',
-      'nama_kategori_profesi',  
+      'kota',
+      'kota',  
       'required',  
       array(         
-        'required'  =>  'Anda belum mengisikan Nama Kategori Profesi.') 
-    );    
-
-    if ($valid->run()===false) {
-      $data = array(
-        'title'   => 'Dashboard Admin DPK - Tambah Kategori Artikel',   
-        'profesi' => $profesi,
-        'isi' => 'admin/kategori_profesi_t'
-      );
-      $this->load->view("admin/layout/wrapper", $data, false);
-    } else {
-      $i = $this->input;
-      $slug = url_title($this->input->post('nama_kategori_profesi'), 'dash', TRUE);
-      $data = array(
-          'nama_kategori_profesi' =>  $i->post('nama_kategori_profesi'),
-          'Slug_kategori_profesi' =>  $slug
-        );
-
-        $this->M_kategori_profesi->add($data);
-        $this->session->set_flashdata('notifikasi', '<center>Berhasil Menambahkan data <strong> Kategori Profesi Baru</strong></center>');
-        redirect('/admin/kategori_profesi/add/');
-      }
-    }
-
-  public function edit($id_kategori_profesi) {
-    $edit  = $this->M_kategori_profesi->detail($id_kategori_profesi); 
-    $profesi = $this->M_kategori_profesi->select_kategori_profesi();
-
-    $valid = $this->form_validation;
+        'required'  =>  'Anda belum mengisikan Kota.') 
+    );
     $valid->set_rules(
-      'nama_kategori_profesi',
-      'nama_kategori_profesi',  
+      'ip_address',
+      'ip_address',  
       'required',  
       array(         
-        'required'  =>  'Anda belum mengisikan Nama Kategori.') 
+        'required'  =>  'Anda belum mengisikan Ip Address.') 
+    ); 
+    $valid->set_rules(
+      'provinsi',
+      'provinsi',  
+      'required',  
+      array(         
+        'required'  =>  'Anda belum mengisikan Provinsi.') 
     );  
 
     if ($valid->run()===false) {  
       $data = array(
         'title' => 'Dashboard Admin DPK',
-        'isi'   => 'admin/kategori_profesi_e',
-        'profesi'     => $profesi,
+        'isi'   => 'admin/search_tracking_e',
+        'sub'  => $sub,
+        'kategori'  => $kategori,
         'edit'  => $edit
       );       
       $this->load->view("admin/layout/wrapper", $data, false);
     }else{        
         $i  = $this->input;
-        $slug = url_title($this->input->post('nama_kategori_profesi'), 'dash', TRUE);
         $data = array(
-          'nama_kategori_profesi' =>  $i->post('nama_kategori_profesi'),
-          'Slug_kategori_profesi' =>  $slug
+          'id_kategori_profesi'     =>  $i->post('id_kategori_profesi'),
+          'id_sub_kategori_profesi' =>  $i->post('id_sub_kategori_profesi'),
+          'ip_address'  =>  $i->post('ip_address'),
+          'kota'        =>  $i->post('kota'),
+          'provinsi'    =>  $i->post('provinsi')
         );
 
-        $this->M_kategori_profesi->edit($data,$id_kategori_profesi);
-        $this->session->set_flashdata('notifikasi', '<center>Berhasil Merubah <strong> Data Kategori Profesi</strong></center>');
-        redirect('/admin/kategori_profesi/edit/'.$edit->id_kategori_profesi);
+        $this->M_search_tracking->edit($data,$id_search_tracking);
+        $this->session->set_flashdata('notifikasi', '<center>Berhasil Merubah <strong> Data Search Tracking</strong></center>');
+        redirect('/admin/search_tracking/');
       }
     }
 
   public function delete($id) {
     $data = array('id'  =>  $id);
-    $this->M_kategori_profesi->delete($data);
-    $this->session->set_flashdata('notifikasi', '<center>Berhasil Menghapus <strong> Data Kategori Artikel</strong></center>');
-    redirect('admin/kategori_profesi');
+    $this->M_search_tracking->delete($data);
+    $this->session->set_flashdata('notifikasi', '<center>Berhasil Menghapus <strong> Data Search Tracking</strong></center>');
+    redirect('admin/search_tracking/');
   }
 
 }

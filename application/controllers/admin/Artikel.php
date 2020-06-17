@@ -8,18 +8,30 @@ public function __construct()
 		parent::__construct();
 		$this->load->model('M_artikel');
 		$this->load->model('M_kategori_artikel');
+		$this->load->model('M_sub_kategori_profesi');
+		$this->load->model('M_relation_profesi');
 		$this->load->model('M_user');
-	}
+	}   
 
 	public function index() {  
-		$artikel = $this->M_artikel->select_artikel();
+		$semua  = $this->M_artikel->count_semua();
+		$publish  = $this->M_artikel->count_publish();
+		$pending  = $this->M_artikel->count_pending();
+		$artikel = $this->M_artikel->select_artikel();    
+		$artikel_publish = $this->M_artikel->select_artikel_publish();
+		$artikel_pending = $this->M_artikel->select_artikel_pending();
 		$data = array(
 			'title' => 'Dashboard Admin DPK',
-			'artikel'  => $artikel,
+			'semua' =>  $semua,
+			'publish' =>  $publish,  
+			'pending' =>  $pending,  
+			'artikel' =>  $artikel,
+			'artikel_publish' =>  $artikel_publish,
+			'artikel_pending' =>  $artikel_pending,
 			'isi' => 'admin/artikel_v'
 		);
 		$this->load->view("admin/layout/wrapper", $data, false);
-	}
+	}   
 
 	public function add() {  
 		$select = $this->M_kategori_artikel->select_kategori_artikel();
@@ -75,7 +87,6 @@ public function __construct()
 
 		$this->load->library('upload', $config); 
 		$i = $this->input;
-		$slug = url_title($this->input->post('judul_artikel'), 'dash', TRUE);
 		if ($valid->run()===false) {
 			$data = array(
 				'title'   => 'Dashboard Admin DPK - Tambah Artikel',   
@@ -100,7 +111,7 @@ public function __construct()
 					'tgl_publish'   =>  $i->post('tgl_publish'),
 					'gambar_artikel'=>  $this->upload->data('file_name'),
 					'created'      	=>  $i->post('created'),
-					'slug_artikel'  =>  $slug
+					'slug_artikel'  =>  url_title($this->input->post('judul_artikel'),'dash',TRUE)
 				);
 
 				$this->M_artikel->add($data);
@@ -114,6 +125,10 @@ public function __construct()
 		$edit  = $this->M_artikel->detail($id_artikel); 
 		$select = $this->M_kategori_artikel->select_kategori_artikel();
 		$user = $this->M_user->select_user();
+		
+		$relasi = $this->M_relation_profesi->select_relation_profesi($edit->id_artikel);
+		$sub = $this->M_sub_kategori_profesi->select_sub_kategori_profesi();
+
 
 		$valid = $this->form_validation;
 		$valid->set_rules(
@@ -169,19 +184,18 @@ public function __construct()
 				'isi' => 'admin/artikel_e',
 				'select'     => $select,
 				'user'     => $user,
-				'edit'     => $edit
+				'edit'     => $edit,
+				'sub'     => $sub,
+				'relasi'     => $relasi
 			);       
 			$this->load->view("admin/layout/wrapper", $data, false);
 
 
 
 		}else{
-			if ($edit->gambar_artikel != "") {
-			 	unlink('./img/img_artikel/'.$edit->gambar_artikel);
-			}
+			
 			if ( ! $this->upload->do_upload('gambar_artikel'))
 			{   
-				$slug = url_title($this->input->post('judul_artikel'), 'dash', TRUE);
 				$data = array(
 					'judul_artikel' =>  $i->post('judul_artikel'),
 					'expert_artikel'=>  $i->post('expert_artikel'),
@@ -192,7 +206,7 @@ public function __construct()
 					'tgl_publish'   =>  $i->post('tgl_publish'),
 					'gambar_artikel'=>  $i->post('gambar_lama'),
 					'created'      	=>  $i->post('created'),
-					'slug_artikel'  =>  $slug
+					'slug_artikel'  =>  url_title($this->input->post('judul_artikel'),'dash',TRUE)
 				);
 
 				$this->M_artikel->edit($data,$id_artikel);
@@ -201,6 +215,9 @@ public function __construct()
 			}
 			else   
 			{
+				if ($edit->gambar_artikel != "") {
+			 	unlink('./img/img_artikel/'.$edit->gambar_artikel);
+			}
 				$data = array(
 					'judul_artikel' =>  $i->post('judul_artikel'),
 					'expert_artikel'=>  $i->post('expert_artikel'),
@@ -211,7 +228,7 @@ public function __construct()
 					'tgl_publish'   =>  $i->post('tgl_publish'),
 					'gambar_artikel'=>  $this->upload->data('file_name'),
 					'created'      	=>  $i->post('created'),
-					'slug_artikel'  =>  $slug
+					'slug_artikel'  =>  url_title($this->input->post('judul_artikel'),'dash',TRUE)
 				);
 
 				$this->M_artikel->edit($data,$id_artikel);
@@ -220,7 +237,6 @@ public function __construct()
 			}
 		}
 	}
-
 	public function delete($id)	{
 		$delete = $this->M_artikel->detail($id);
 		if ($delete->gambar_artikel != "") {
@@ -230,6 +246,56 @@ public function __construct()
 		$this->M_artikel->delete($data);
 		$this->session->set_flashdata('notifikasi', '<center>Berhasil Menghapus <strong> Data User </strong></center>');
 		redirect('admin/artikel');
+	}
+
+	public function add_relasi($id_artikel) {  
+		$artikel  = $this->M_artikel->detail($id_artikel); 
+		$relasi = $this->M_relation_profesi->select_relation_profesi($artikel->id_artikel);
+		// echo "<pre>";
+		// print_r($relasi);
+		// exit();
+		
+		$sub = $this->M_sub_kategori_profesi->select_sub_kategori_profesi($id_artikel);
+
+		$valid = $this->form_validation;
+		$valid->set_rules(
+			'id_artikel',
+			'id_artikel',  
+			'required',  
+			array(         
+				'required'  =>  'Anda belum mengisikan Judul Artikel.') 
+		);		
+
+		if ($valid->run()===false) {
+			$data = array(
+				'title'   => 'Dashboard Admin DPK - Tambah Relasi Profesi',   
+				'relasi' => $relasi,
+				'artikel' => $artikel,
+				'sub' => $sub,
+				'isi' => 'admin/artikel_e'
+			);
+			$this->load->view("admin/layout/wrapper", $data, false);
+		} else {
+			$i = $this->input;
+			$data = array(
+					'id_artikel' =>  $artikel->id_artikel,
+					'id_sub_kategori_profesi' =>  $i->post('id_sub_kategori_profesi')
+				);
+
+				$this->M_relation_profesi->add($data);
+				$this->session->set_flashdata('notifikasi', '<center>Berhasil Menambahkan data <strong> Relasi Profesi Baru</strong></center>');
+				redirect('/admin/artikel/edit/'.$artikel->id_artikel);
+			}
+		}  
+
+
+	public function delete_relasi($id)	{
+    	$relasi  = $this->M_relation_profesi->detail($id); 
+		$data = array(	'id'  		=>  $id,
+						'relasi'	=> $relasi );
+		$this->M_relation_profesi->delete($data);
+		$this->session->set_flashdata('notifikasi', '<center>Berhasil Menghapus <strong> Data Relasi Artikel</strong></center>');
+		redirect('admin/artikel/edit/'.$relasi->id_artikel);
 	}
 
 }
