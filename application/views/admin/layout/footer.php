@@ -68,33 +68,5 @@
   });
 </script>
 
-  <script type="text/javascript">
-    $(document).ready(function(){
-
-      $('#province_id').change(function(){ 
-                var id=$(this).val();
-                $.ajax({
-                    url : "<?php echo site_url('admin/user/kota');?>",
-                    method : "POST",
-                    data : {id: id},
-                    async : true,
-                    dataType : 'json',
-                    success: function(data){
-                        
-                        var html = '';
-                        var i;
-                        for(i=0; i<data.length; i++){
-                            html += '<option value='+data[i].regency_id+'>'+data[i].regency_name+'</option>';
-                        }
-                        $('#regency_id').html(html);
-
-                    }
-                });
-                return false;
-            }); 
-            
-    });
-  </script>
-
         </body>
         </html>

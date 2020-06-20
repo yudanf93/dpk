@@ -46,8 +46,8 @@
        					<td><?php echo $no; ?></td>
        					<td><?php echo $user->nama_user; ?></td>
        					<td><?php echo $user->alamat_user; ?></td>
-       					<td><?php echo $user->regency_name; ?></td>
-       					<td><?php echo $user->province_name; ?></td>
+       					<td><?php echo $user->kota_user; ?></td>
+       					<td><?php echo $user->provinsi_user; ?></td>
        					<td><?php echo $user->nohp_user; ?></td>
                 <td><?php echo $user->file_user; ?></td>
                 <td><?php echo $user->email_user; ?></td>

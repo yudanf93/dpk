@@ -24,23 +24,10 @@ class M_user extends CI_Model {
 		$query  = $this->db->get();
 		return $query->row();
 	}
-   	public function provinsi() {
-		$this->db->select('*');   
-		$this->db->from('provinces');
-		$this->db->order_by('province_id', 'DESC');
-		$query  = $this->db->get();
-		return $query->result();
-	}
-	function kota($province_id){
-		$query = $this->db->get_where('regencys', array('province_id' => $province_id));
-		return $query;
-	}
-
+   
 	public function select_user() {
-		$this->db->select('user.*, regencys.*, provinces.*');   
+		$this->db->select('*');   
 		$this->db->from('user');
-		$this->db->join('regencys', 'regencys.regency_id = user.regency_id', 'left');
-		$this->db->join('provinces', 'provinces.province_id = user.province_id', 'left');
 		$this->db->order_by('id_user', 'DESC');
 		$query  = $this->db->get();
 		return $query->result();

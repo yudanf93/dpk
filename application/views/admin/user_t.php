@@ -30,19 +30,12 @@
 							<input type="text" class="form-control" placeholder="Masukkan Alamat dengan Lengkap" name="alamat_user">
 						</div>
 						<div class="form-group">
-							<label>Provinsi</label>
-							<select class="custom-select form-control" name="province_id" id="province_id" required>
-								<option value="">Pilih Provinsi</option>
-								<?php foreach($provinsi as $provinsi){?>
-									<option value="<?php echo $provinsi->province_id;?>"><?php echo $provinsi->province_name;?></option>
-								<?php } ?>
-							</select>
+							<label>Kota</label>
+							<input type="text" class="form-control" placeholder="Masukkan Nama Kota" name="kota_user">
 						</div>
 						<div class="form-group">
-							<label>Kota</label>
-							<select class="custom-select form-control" name="regency_id" id="regency_id" required>
-								<option value="">Pilih Kota</option>
-							</select>
+							<label>Provinsi</label>
+							<input type="text" class="form-control" placeholder="Masukkan Nama Provinsi" name="provinsi_user">
 						</div>
 					</div>
 				</div>  
@@ -61,7 +54,7 @@
 						</div>
 						<div class="form-group">
 							<label>Akses level</label>
-							<select class="custom-select form-control" name="akses_level">
+							<select class="custom-select form-control	" name="akses_level">
 								<option selected>Pilih jenis Akses Level</option>
 								<option value="admin">Admin</option>
 								<option value="user">User</option>
@@ -69,7 +62,7 @@
 						</div>
 						<div class="form-group">
 							<label>Status User</label>
-							<select class="custom-select form-control" name="status_user">
+							<select class="custom-select form-control	" name="status_user">
 								<option selected>Pilih jenis Status</option>
 								<option value="1">Aktif</option>
 								<option value="0">Tidak</option>
