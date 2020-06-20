@@ -1,7 +1,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navStyle sticky-top">
       <a class="brand-navbar" href="<?php echo base_url('home') ?>">
-        <img class="img-fluid logo" src="<?php base_url(); ?>assets/frontend/assets/images/logo-perusahaan.png" alt="logo-perusahaan">
+        <img class="img-fluid logo" src="<?php echo base_url(); ?>assets/frontend/assets/images/logo-perusahaan.png" alt="logo-perusahaan">
       </a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
           <span><i class="fa fa-align-right iconStyle"></i></span>

@@ -28,6 +28,13 @@ class M_artikel extends CI_Model {
       $pending  =   $this->db->count_all_results();
       return $pending;
     }
+    public function count_reviewer() { 
+      $this->db->select('*');   
+      $this->db->from('artikel');
+      $this->db->where('status_artikel', '2');
+      $pending  =   $this->db->count_all_results();
+      return $pending;
+    }
 
 	public function select_artikel() {
 		$this->db->select('artikel.*, kategori_artikel.*, user.*');   
@@ -52,6 +59,16 @@ class M_artikel extends CI_Model {
 		$this->db->select('artikel.*, kategori_artikel.*, user.*');   
 		$this->db->from('artikel');
       	$this->db->where('status_artikel', '0');
+		$this->db->join('user', 'user.id_user = artikel.id_user', 'left');
+		$this->db->join('kategori_artikel', 'kategori_artikel.id_kategori_artikel = artikel.id_kategori_artikel', 'left');
+		$this->db->order_by('id_artikel', 'DESC');
+      	$query  = $this->db->get();
+      	return $query->result();
+    }
+    public function select_artikel_reviewer() {
+		$this->db->select('artikel.*, kategori_artikel.*, user.*');   
+		$this->db->from('artikel');
+      	$this->db->where('status_artikel', '2');
 		$this->db->join('user', 'user.id_user = artikel.id_user', 'left');
 		$this->db->join('kategori_artikel', 'kategori_artikel.id_kategori_artikel = artikel.id_kategori_artikel', 'left');
 		$this->db->order_by('id_artikel', 'DESC');
@@ -98,9 +115,18 @@ class M_artikel extends CI_Model {
 	}
 
 	public function detail_user($slug) {
-		$this->db->select('*');
+		$this->db->select('artikel.*, kategori_artikel.*');
 		$this->db->from('artikel');
 		$this->db->where('slug_artikel', $slug);
+		$this->db->join('kategori_artikel', 'kategori_artikel.id_kategori_artikel = artikel.id_kategori_artikel', 'left');
+		$query  = $this->db->get();
+		return $query->row();
+	}
+	public function detail_e($slug_artikel) {
+		$this->db->select('artikel.*, kategori_artikel.*');
+		$this->db->from('artikel');
+		$this->db->where('slug_artikel', $slug_artikel);
+		$this->db->join('kategori_artikel', 'kategori_artikel.id_kategori_artikel = artikel.id_kategori_artikel', 'left');
 		$query  = $this->db->get();
 		return $query->row();
 	}

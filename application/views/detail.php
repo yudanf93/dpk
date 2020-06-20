@@ -5,10 +5,10 @@
   <div id="blog">
     <div class="row">
       <div class="col-md-9">
-        <img class="img-fluid artikel" src="assets/images/gambar-artikel.jpeg" alt="judul-artikel">
+        <img class="img-fluid artikel" src="<?php echo base_url().'img/img_artikel/'.$detail->gambar_artikel ?>" alt="judul-artikel">
         <div class="row">
           <div class="col-md-8">
-            <h2 class="artikel-title">Cara Mengatur Keuangan</h2>
+            <h2 class="artikel-title"><?php echo $detail->judul_artikel ?></h2>
           </div>
           <div class="col-md-4">
             <div class="float-right date">
@@ -16,14 +16,13 @@
             </div>
           </div>
         </div>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <p><?php echo $detail->detail_artikel ?></p>
 
         <div class="row">
-          <div class="col-md-12">
-            <button type="button" class="btn btn-outline-secondary">Akuntan</button>
-            <button type="button" class="btn btn-outline-secondary">Perencana keuangan</button>
+          <div class="col-md-12">            
+            <?php foreach ($relasi as $relasi) : ?>
+              <button type="button" class="btn btn-outline-secondary"><?php echo $relasi->nama_sub_kategori_profesi ?></button>
+            <?php endforeach ?>
             <div class="float-right share">
               <a href="#" class="sosm"><i class="fa fa-linkedin"></i></a>
               <a href="#" class="sosm"><i class="fa fa-facebook"></i></a>
@@ -31,7 +30,7 @@
             </div>
           </div>
         </div>
-
+       
       </div>
 
       <div class="col-md-3">
@@ -41,10 +40,7 @@
         <div class="kategori">
           <h3 class="titleh3">Kategori Artikel</h3>
           <ul>
-            <li>Akuntansi</li>
-            <li>Pajak</li>
-            <li>Keuangan</li>
-            <li>Bisnis</li>
+            <li><?php echo $detail->nama_kategori_artikel ?></li>
           </ul>
         </div>
       </div>

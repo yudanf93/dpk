@@ -13,8 +13,18 @@ class M_user extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('user');
 		$query =$this->db->get();
-		return $query->row_array();
+		return $query->row();
 	}
+	
+	public function pilih_user() {
+		$this->db->select('*');   
+		$this->db->from('user');
+		$this->db->where('id_user', $this->session->userdata('id_user'));
+		$this->db->order_by('id_user', 'DESC');
+		$query  = $this->db->get();
+		return $query->row();
+	}
+   
 	public function select_user() {
 		$this->db->select('*');   
 		$this->db->from('user');
@@ -28,7 +38,7 @@ class M_user extends CI_Model {
 	}
 	public function add($data) {
 		$this->db->insert('user', $data);
-	}
+	}   
 
 	public function detail($id_user) {
 		$this->db->select('*');

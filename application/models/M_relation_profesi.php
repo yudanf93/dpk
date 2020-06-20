@@ -35,6 +35,15 @@ class M_relation_profesi extends CI_Model {
 		$this->db->where('id_relation_profesi', $id_relation_profesi);
 		$query  = $this->db->get();
 		return $query->row();
+	}	 
+	public function relasi_user($slug) {
+		$this->db->select('relation_profesi.*, artikel.*, sub_kategori_profesi.*');
+		$this->db->from('relation_profesi');
+		$this->db->join('artikel', 'artikel.id_artikel = relation_profesi.id_artikel', 'left');
+		$this->db->join('sub_kategori_profesi', 'sub_kategori_profesi.id_sub_kategori_profesi = relation_profesi.id_sub_kategori_profesi', 'left');
+		$this->db->where('artikel.slug_artikel', $slug);
+		$query  = $this->db->get();
+		return $query->result();
 	}
 	
 	public function edit($data,$id_relation_profesi){
