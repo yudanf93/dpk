@@ -19,7 +19,7 @@
           <form action="artikel-manajemen.html">
             <div class="form-group">
               <label>Password Lama</label>
-              <input type="password" class="form-control" id="" placeholder="********">
+              <input type="password" class="form-control" id="" value="<?php echo $get_user->password_user ?>" readonly>
             </div>          
             <div class="form-group">
               <label>Password baru</label>
@@ -37,7 +37,6 @@
         <?php
         echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
         <div class="tambah-artikel">
-          <h4 class="titleh3">Data Pengguna</h4>
           <form action="<?php echo base_url('user/profil/edit/'.$get_user->id_user) ?>">
             <div class="form-group">
               <input type="text" class="form-control" id="" value="<?php echo $get_user->nama_user?>">
@@ -64,6 +63,7 @@
                 <input type="file" class="custom-file-input" id="inputGroupFile02">
                 <label class="custom-file-label" for="inputGroupFile02"> <?php echo $get_user->file_user?></label>
               </div>
+              <p style="padding-left: 10px; margin-top: 10px;"><a href="<?php echo base_url('dokumen/dok_user/'.$get_user->file_user); ?>"><i class="fa fa-download pr-2"></i>Lihat Surat</a></p>              
             </div>
             <p style="color: red; font-size: 12px; margin-top: -10px;">Noted : Dokumen dengan format.pdf, maksimal 200kb</p>
             <button type="submit" class="btn btn-success c wd pl-5 pr-5">Submit</button>
