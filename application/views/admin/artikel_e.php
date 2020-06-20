@@ -71,8 +71,9 @@
             <div class="form-group">
               <label>Status artikel</label>
               <select class="custom-select form-control " name="status_artikel">
-                <option value="1" <?php if ($edit->status_artikel==1){echo "selected";} ?>>Aktif</option>
-                <option value="0" <?php if ($edit->status_artikel==0){echo "selected";} ?>>Tidak</option>
+                <option value="1" <?php if ($edit->status_artikel==1){echo "selected";} ?>>Publish</option>
+                <option value="2" <?php if ($edit->status_artikel==2){echo "selected";} ?>>Reviewer</option>
+                <option value="0" <?php if ($edit->status_artikel==0){echo "selected";} ?>>Pending</option>
               </select>  
             </div>
           </div>
@@ -122,8 +123,8 @@
             <input type="text" class="form-control" value="<?php echo $edit->judul_artikel ?>" name="id_artikel" hidden>
             <div class="form-group">
               <label>Sub Kategori Profesi</label>
-              <select class="custom-select form-control" name="id_sub_kategori_profesi">
-                <option selected>Pilih Sub Kategori Profesi</option>
+              <select class="custom-select form-control" name="id_sub_kategori_profesi" required>
+                <option selected value="">Pilih Sub Kategori Profesi</option>
                 <?php foreach ($sub as $sub) { ?>       
                   <option value="<?php echo $sub->id_sub_kategori_profesi ?>"><?php echo $sub->nama_sub_kategori_profesi ?></option>
                 <?php } ?> 
@@ -148,7 +149,7 @@
          <th>Artikel</th>
          <th>Sub Kategori Profesi</th>
          <th>Aksi</th>
-       </tr>
+       </tr>  
      </thead>
      <tbody>
       <?php

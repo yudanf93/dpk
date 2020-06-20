@@ -2,7 +2,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <img class="image-footer" src="<?php base_url(); ?>assets/frontend/assets/images/logo-perusahaan.png" alt="logo-perusahaan">
+          <img class="image-footer" src="<?php echo base_url(); ?>assets/frontend/assets/images/logo-perusahaan.png" alt="logo-perusahaan">
           <p class="description-footer">
           Direktori Profesi Keuangan (DPK) adalah portal informasi para professional bidang keuangan yang bermanfaat bagi pelaku bisnis untuk menemukan profesi yang dibutuhkan sesuai dengan permasalahan yang dihadapinya. DPK berfungsi mempertemukan antara professional dengan pelaku bisnis.</p>
         </div>

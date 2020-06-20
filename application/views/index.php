@@ -1,3 +1,55 @@
+  <!-- header -->
+  <div id="header">
+    <div class="container">
+        <?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
+        <?php
+        if ($this->session->flashdata('pesan')) {
+          echo "<br>";
+          echo "<div class='alert alert-danger alert-dismissible fade show'><center>";
+          echo $this->session->flashdata('pesan');
+          echo "</center><button type='button' class='close' data-dismiss='alert'>
+          </button></div>";
+        }
+        ?>        
+        <?php
+        if ($this->session->flashdata('notifikasi')) {
+          ?>
+          <p style="text-align: center; color: red;"><b><?php echo $this->session->flashdata('notifikasi'); ?></b></p>  
+        <?php } ?>
+      <div class="row justify-content-center">
+        <h1 class="title-header">Direktori Profesi Keuangan</h1>
+        <p class="description-header">Direktori Profesi Keuangan (DPK) adalah portal informasi para professional bidang keuangan yang bermanfaat bagi user (pelaku bisnis) untuk menemukan profesi yang dibutuhkan sesuai dengan permasalahan yang dihadapinya.</p>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <form class="form-header" action="professional.html">
+            <h3 class="subtitle-header">Cari Profesi</h3>
+            <div class="form-row">
+              <div class="col-md-4">
+                <select class="custom-select prof">
+                  <option selected>Bidang Profesi</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <select class="custom-select prof">
+                  <option selected>Lokasi Profesi</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <a href="pencarian-professional.html"><button type="button" class="btn btn-success c professional"><i class="fa fa-search"></i> Cari Profesional</button></a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="langkah">
     <div class="container">
       <div class="row">
@@ -103,7 +155,7 @@
               <p class="card-text"><?php echo $artikel->nama_kategori_artikel; ?></p>
               <hr>
               <div class="float-left date">
-                <i class="fa fa-clock-o"></i> <?php echo $artikel->tgl_publish; ?>
+                <i class="fa fa-clock-o"></i> <?php $date=date_create($artikel->tgl_publish); echo date_format($date, 'd F Y'); ?>
               </div>
               <div class="float-right det">
                 <a href="<?php echo base_url('detail/blog/'.$artikel->slug_artikel) ?>"><button type="button" class="btn btn-success c">Detail</button></a>
@@ -113,7 +165,7 @@
         </div>
       <?php endforeach ?>
         <div class="col-md-12">
-          <center><a href="blog.html"><button type="button" class="btn btn-success c">Selengkapnya</button></a></center>
+          <center><a href="<?php echo base_url('blog') ?>"><button type="button" class="btn btn-success c">Selengkapnya</button></a></center>
         </div>
       </div>
     </div>

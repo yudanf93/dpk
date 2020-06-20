@@ -32,7 +32,7 @@ class Login extends CI_Controller {
       $data = array(
         'title'   => 'Login Direktori Profesi Keuangan',
         'metades' => 'Direktori Profesi Keuangan',
-        'isi'   => 'index'
+        'isi'   => '-'
       );  
       $this->load->view('layout/wrapper', $data, false);
     } else {   
@@ -57,7 +57,7 @@ class Login extends CI_Controller {
           
       } else {
         $this->session->set_userdata('online',false);
-        $this->session->set_flashdata('notifikasi', '<center>Email dan password tidak cocok... !</center>');
+        $this->session->set_flashdata('pesan', '<center><strong>Email dan password tidak cocok... !</strong></center>');
         redirect(site_url('home'), 'refresh');
       }
     }

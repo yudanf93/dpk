@@ -45,7 +45,7 @@ class User extends CI_Controller {
 		);
 		$valid->set_rules(
 			'kota_user',
-			'kota_user',
+			'kota_user', 
 			'required',
 			array(
 				'required'  =>  'Anda belum mengisikan Kota.')
@@ -71,6 +71,15 @@ class User extends CI_Controller {
 			array(
 				'required'  =>  'Anda belum mengisikan File.')
 		);
+		$valid = $this->form_validation;
+		$valid->set_rules(
+			'password_user',
+			'password_user',
+			'required',
+			array(
+				'required'  =>  'Anda belum mengisikan Password.')
+		);
+
 
 		$config['upload_path']          = './img/img_user/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg';
@@ -231,12 +240,12 @@ class User extends CI_Controller {
 				redirect('/admin/user');
 			}
 		}
-	}
+	} 
 
 	public function reset_password($id_user)  {  
 		$edit  = $this->M_user->detail($id_user); 
 
-		$valid = $this->form_validation->set_rules('password_user', 'Pasword anda belum di isi', 'required');
+		$valid = $this->form_validation->set_rules('password_user', 'Pasword anda belum di isi', 'required'); 
 		$valid = $this->form_validation->set_rules('passconf', 'Password anda tidak sesuai', 'required|matches[password_user]');
 		$valid = $this->form_validation->set_message('required','%s wajib diisi');
 		$valid = $this->form_validation->set_error_delimiters('<p class="alert">','</p>');

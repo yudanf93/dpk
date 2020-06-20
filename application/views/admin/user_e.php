@@ -70,7 +70,7 @@
 							<input type="file" class="form-control"  name="foto">
 							<input class="form-control" name="gambar_lama" id="gambar_lama" type="text" value="<?php echo $edit->foto ?>" hidden>
 						</div>
-					</div>
+					</div>  
 				</div>  
 			</div>
 

@@ -5,8 +5,18 @@
   <div id="blog">
     <div class="row">
       <div class="col-md-12">
+        <?php
+        if ($this->session->flashdata('notifikasi')) {
+          echo "<br>";
+          echo "<div class='alert alert-success alert-dismissible fade show'><center>";
+          echo $this->session->flashdata('notifikasi');
+          echo "</center><button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+          </button></div>";
+        }
+        ?>
         <div class="float-right">
-          <a href="artikel-tambah.html"><button class="btn btn-outline-success c my-2 my-sm-0">Tambah Artikel</button></a>
+          <a href="<?php echo base_url('user/manajemen_artikel/add') ?>"><button class="btn btn-outline-success c my-2 my-sm-0">Tambah Artikel</button></a>
         </div>
       </div>
       <div class="table-responsive p-4">
@@ -33,14 +43,16 @@
                 <td>
                   <?php if ($artikel->status_artikel=='0'){ ?>  
                     <button class="btn btn-sm btn-danger">Pending</button>
-                  <?php }else {?>
+                  <?php } else if ($artikel->status_artikel=='2') { ?>
+                    <button class="btn btn-sm btn-warning">Reviewer</button>
+                  <?php } else { ?>
                     <button class="btn btn-sm btn-success">Publish</button>
                   <?php } ?>
                 </td>
                 <td><?php echo $artikel->tgl_publish; ?></td>
                 <td>
-                  <a href="#" style="color: #91A440">Edit</a> |
-                  <a href="#" style="color: red">Hapus</a>
+                  <a href="<?php echo base_url('user/manajemen_artikel/edit/'.$artikel->slug_artikel) ?>" style="color: #91A440">Edit</a> |
+                  <a href="<?php echo base_url('user/manajemen_artikel/delete') ?>" style="color: red">Hapus</a>
                 </td>
             </tr>
             <?php

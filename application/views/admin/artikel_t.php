@@ -66,8 +66,9 @@
 							<label>Status artikel</label>
 							<select class="custom-select form-control	" name="status_artikel">
 								<option selected>Pilih jenis Status Artikel</option>
-								<option value="1">Aktif</option>
-								<option value="0">Tidak</option>
+								<option value="1">Publish</option>
+								<option value="2">Reviewer</option>
+								<option value="0">Pending</option>
 							</select>  
 						</div>
 					</div>
@@ -94,3 +95,4 @@
 		</div>
 		<?php echo form_close(); ?>
 	</main>
+  

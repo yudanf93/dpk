@@ -18,3 +18,4 @@ if ($this->session->userdata('username') == "" && $this->session->userdata('akse
     $this->session->set_flashdata('notifikasi', 'Silahkan login sebagai admin terlebih dahulu');
     redirect(site_url('Login'));
 }
+    

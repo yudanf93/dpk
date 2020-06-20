@@ -125,7 +125,7 @@ public function __construct()
 		$edit  = $this->M_artikel->detail($id_artikel); 
 		$select = $this->M_kategori_artikel->select_kategori_artikel();
 		$user = $this->M_user->select_user();
-		
+		     
 		$relasi = $this->M_relation_profesi->select_relation_profesi($edit->id_artikel);
 		$sub = $this->M_sub_kategori_profesi->select_sub_kategori_profesi();
 
@@ -253,7 +253,7 @@ public function __construct()
 		$relasi = $this->M_relation_profesi->select_relation_profesi($artikel->id_artikel);
 		// echo "<pre>";
 		// print_r($relasi);
-		// exit();
+		// exit();    
 		
 		$sub = $this->M_sub_kategori_profesi->select_sub_kategori_profesi($id_artikel);
 
