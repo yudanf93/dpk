@@ -7,15 +7,14 @@ class Daftar extends CI_Controller {
 		parent::__construct();
 		$this->load->model('M_artikel');
 		$this->load->model('M_user');
-		$this->load->library(['form_validation','email','session']);
-		$this->load->helper(['form','security']);
+		$this->load->library(['form_validation','session']);
 	}
 
 	public function index() {
 		$artikel = $this->M_artikel->select_artikel_publish();  
 		
 		$valid = $this->form_validation;
-		$valid->set_rules('email_user', '<strong>Email yang anda masukkan sudah terdaftar</strong>', 'required|trim|xss_clean|is_unique[user.email_user]|min_length[11]|max_length[40]|valid_email');
+		$valid->set_rules('email_user', '<strong>Email yang anda masukkan sudah terdaftar</strong>', 'required|trim|is_unique[user.email_user]|min_length[11]|max_length[40]|valid_email');
 
 		$valid->set_rules(
 			'password_user',
@@ -84,19 +83,20 @@ public function send_konfirmasi($email_user,$nama_user,$file_user)
     // exit();
 	$subject  = "Pendaftaran Akun Direktori Profesi Keuangan (DPK)";
 	$message  = $this->load->view('user/v_email_register',$data,true);
-	$config   = array(
-		'protocol'    => 'smtp',
-		'smtp_host'   => 'ssl://smtp.googlemail.com',
-		'smtp_port'   => 465,
-		'smtp_user'   => 'yudafadilah248@gmail.com',
-		'smtp_pass'   => 'fadilah12345',
-	    'mailtype'  => 'html', 
-	    'charset'   => 'iso-8859-1'
-	);
+    $config   = array(
+      'protocol'    => 'smtp',
+      'smtp_host'   => 'ssl://mail.temanukai.com',
+      'smtp_port'   => '465',
+      'smtp_user'   => 'admin@temanukai.com',
+      'smtp_pass'   => '@temanukai123',
+      'mailtype'    => 'html',
+      'charset'     => 'utf-8',
+      'wordwrap'    => TRUE
+    );
 	$this->load->library('email', $config);
     // $this->email->initialize($config); 
 	$this->email->set_newline("\r\n");
-	$this->email->from('yudafadilah248@gmail.com','Direktori Profesi Keuangan (DPK)');
+	$this->email->from('admin@temanukai.com','Direktori Profesi Keuangan (DPK)');
 	$this->email->to($data['email_user']);
 	$this->email->subject($subject);
 	$this->email->message($message);
@@ -109,8 +109,8 @@ public function send_konfirmasi($email_user,$nama_user,$file_user)
 		$this->session->set_flashdata('notifikasi', '<div class="alert alert-danger alert-dismissible fade show"><center>Pengiriman Email anda<strong> Gagal</strong></center><button type="button" class=close data-dismiss=alert aria-label=Close>
 			<span aria-hidden=true>&times;</span>
 			</button></div>');
-      // echo $this->email->print_debugger();
-      // exit();  
+      echo $this->email->print_debugger();
+      exit();  
 	}
 }
 

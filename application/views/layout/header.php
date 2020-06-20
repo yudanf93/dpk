@@ -1,4 +1,4 @@
-<body>
+  <body>
   <nav class="navbar navbar-expand-lg navStyle sticky-top">
       <a class="brand-navbar" href="<?php echo base_url('home') ?>">
         <img class="img-fluid logo" src="<?php echo base_url(); ?>assets/frontend/assets/images/logo-perusahaan.png" alt="logo-perusahaan">
@@ -87,9 +87,9 @@
                <?php echo form_open_multipart(site_url('daftar')) ?>
               <h3 class="title-login">Daftar</h3>
               <form action="">
-<!--                 <div class="form-group">
-                  <input type="text" class="form-control" id="" placeholder="No. registrasi">
-                </div> -->
+                <div class="form-group">
+                  <input type="text" class="form-control" id="" placeholder="No. Surat" name="no_surat">
+                </div>
                 <div class="form-group">
                   <input type="text" class="form-control" name="nama_user" placeholder="Nama Lengkap">
                 </div>

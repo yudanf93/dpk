@@ -18,8 +18,17 @@ class User extends CI_Controller {
 		);
 		$this->load->view("admin/layout/wrapper", $data, false);
 	}
+		// get sub category by category_id
+	function kota(){
+		$category_id = $this->input->post('id',TRUE);
+		$data = $this->M_user->kota($category_id)->result();
+		echo json_encode($data);
+	} 
 
 	public function add() {  
+		$provinsi  = $this->M_user->provinsi(); 
+
+  
 		$valid = $this->form_validation;
 		$valid->set_rules(
 			'nohp_user',
@@ -44,8 +53,8 @@ class User extends CI_Controller {
 				'required'  =>  'Anda belum mengisikan Nama.')
 		);
 		$valid->set_rules(
-			'kota_user',
-			'kota_user', 
+			'regency_id',
+			'regency_id', 
 			'required',
 			array(
 				'required'  =>  'Anda belum mengisikan Kota.')
@@ -58,8 +67,8 @@ class User extends CI_Controller {
 				'required'  =>  'Anda belum mengisikan Alamat.')
 		);
 		$valid->set_rules(
-			'provinsi_user',
-			'provinsi_user',
+			'province_id',
+			'province_id',
 			'required',
 			array(
 				'required'  =>  'Anda belum mengisikan Provinsi.')
@@ -93,7 +102,8 @@ class User extends CI_Controller {
 		if ($valid->run()===false) {
 			$data = array(
 				'title'   => 'Dashboard Admin DPK - Tambah User',   
-				'isi' => 'admin/user_t'
+				'isi' => 'admin/user_t',
+				'provinsi' => $provinsi
 			);
 			$this->load->view("admin/layout/wrapper", $data, false);
 		} else {
@@ -106,9 +116,9 @@ class User extends CI_Controller {
 					'nama_user'     =>  $i->post('nama_user'),
 					'email_user'    =>  $i->post('email_user'),
 					'password_user'=>  md5($i->post('password_user')),
-					'kota_user'	 	=>  $i->post('kota_user'),
+					'regency_id'	 	=>  $i->post('regency_id'),
 					'alamat_user' 	=>  $i->post('alamat_user'),
-					'provinsi_user' =>  $i->post('provinsi_user'),
+					'province_id' =>  $i->post('province_id'),
 					'nohp_user'     =>  $i->post('nohp_user'),
 					'foto'          =>  $this->upload->data('file_name'),
 					'akses_level'   =>  $i->post('akses_level'),

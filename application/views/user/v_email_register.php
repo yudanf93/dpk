@@ -18,10 +18,7 @@
 						<p dir=>Nama : <?php echo $nama_user ?></p>
 					</li>
 					<li dir=>
-						<p dir=>Jenis Kelamin : <?php echo $email_user; ?> </p>
-					</li>
-					<li dir=>
-						<p dir=>Universitas :<?php echo $file_user; ?> </p>
+						<p dir=>Email : <?php echo $email_user; ?> </p>
 					</li>
 				</ul>
 
