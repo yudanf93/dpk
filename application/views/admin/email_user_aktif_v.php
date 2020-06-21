@@ -6,7 +6,7 @@
 			<td>
 				<center>
 					<img src= http://demo.temanukai.com/assets/images/logo-perusahaan.png >
-					<h2>ANDA BERHASIL MELAKUKAN PENDAFTARAN Direktori Profesi Keuangan (DPK)</h2> <br>
+					<h2>Akun Direktori Profesi Keuangan (DPK) Anda berhasil di Aktifkan</h2> <br>
 				</center>
 			</td>
 		</tr>

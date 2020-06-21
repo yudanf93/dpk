@@ -5,9 +5,9 @@
   <div id="blog">
     <div class="row">
       <div class="col-md-9">
-        <div class="row">
+        <div class="row">      
 
-          <?php foreach ($blog_user as $blog_user) : ?>
+          <?php foreach ($data->result() as $blog_user) : ?>
           <div class="col-md-4">
             <div class="card">
               <img src="<?php echo base_url().'img/img_artikel/'.$blog_user->gambar_artikel ?>" class="card-img-top" alt="">
@@ -43,19 +43,8 @@
       </div>
 
       <div class="col-md-12">
-        <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">Prev</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">Next</a>
-            </li>
-          </ul>
-        </nav>
+        
+        <?php echo $pagination; ?>
       </div>
     </div>
   </div>

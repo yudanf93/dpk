@@ -90,8 +90,62 @@
 
                     }
                 });
+                return false; 
+            }); 
+            
+    });
+  </script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      //call function get data edit
+      get_data_edit();
+
+      $('.province_id').change(function(){ 
+                var id=$(this).val();
+                var edit_regency_id = "<?php echo $regency_id;?>";
+                $.ajax({
+                    url : "<?php echo site_url('admin/user/kota');?>",
+                    method : "POST",
+                    data : {id: id},
+                    async : true,
+                    dataType : 'json',
+                    success: function(data){
+
+                        $('select[name="regency_id"]').empty();
+
+                        $.each(data, function(key, value) {
+                            if(edit_regency_id==value.edit_regency_id){
+                                $('select[name="regency_id"]').append('<option value="'+ value.edit_regency_id +'" selected>'+ value.regency_name +'</option>').trigger('change');
+                            }else{
+                                $('select[name="regency_id"]').append('<option value="'+ value.edit_regency_id +'">'+ value.regency_name +'</option>');
+                            }
+                        });
+
+                    }
+                });
                 return false;
             }); 
+
+      //load data for edit
+            function get_data_edit(){
+              var product_id = $('[name="product_id"]').val();
+              $.ajax({
+                url : "<?php echo site_url('product/get_data_edit');?>",
+                    method : "POST",
+                    data :{product_id :product_id},
+                    async : true,
+                    dataType : 'json',
+                    success : function(data){
+                        $.each(data, function(i, item){
+                            $('[name="product_name"]').val(data[i].product_name);
+                            $('[name="category"]').val(data[i].product_category_id).trigger('change');
+                            $('[name="sub_category"]').val(data[i].product_subcategory_id).trigger('change');
+                            $('[name="product_price"]').val(data[i].product_price);
+                        });
+                    }
+
+              });
+            }
             
     });
   </script>

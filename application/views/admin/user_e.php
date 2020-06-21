@@ -8,34 +8,35 @@
 
 			</div>
 
-		</div>  
+		</div>     
 		<?php
 		echo validation_errors('<div class="alert alert-danger">', '</div>');
 		echo form_open_multipart(site_url('admin/user/edit/'.$edit->id_user)) ?>
 		<div class="row my-4">
 			<div class="col-md-6">  
-				<div class="card">
+				<div class="card">  
 					<div class="card-body">   
 						<div class="form-group">
 							<label>Nama User</label>
-							<input type="text" class="form-control" value="<?php echo $edit->nama_user ?>" name="nama_user">
+							<input type="text" class="form-control" value="<?php echo $edit->nama_user ?>" name="nama_user" readonly>
 						</div>
 						<div class="form-group">
 							<label>No Telepon</label>
-							<input type="number" class="form-control" value="<?php echo $edit->nohp_user ?>" name="nohp_user">
+							<input type="number" class="form-control" value="<?php echo $edit->nohp_user ?>" name="nohp_user" readonly>
 						</div>
 						<div class="form-group">
 							<label>Alamat Lengkap</label>
-							<input type="text" class="form-control"value="<?php echo $edit->alamat_user ?>" name="alamat_user">
-						</div>
-						<div class="form-group">
-							<label>Kota</label>
-							<input type="text" class="form-control" value="<?php echo $edit->kota_user ?>" name="kota_user">
+							<textarea rows="2" cols="40"  name="alamat_user"  class="form-control" required readonly><?php echo $edit->alamat_user ?></textarea >
 						</div>
 						<div class="form-group">
 							<label>Provinsi</label>
-							<input type="text" class="form-control" value="<?php echo $edit->provinsi_user ?>" name="provinsi_user">
+							<input type="text" class="form-control" value="<?php echo $edit->province_name ?>" readonly>
 						</div>
+						<div class="form-group">
+							<label>Kota</label>
+							<input type="text" class="form-control" value="<?php echo $edit->regency_name ?>" readonly>
+						</div>
+						<button type="submit" class="btn btn-primary btn-sm">Submit</button>
 					</div>
 				</div>  
 			</div>
@@ -53,10 +54,7 @@
 						</div>
 						<div class="form-group">
 							<label>Akses level</label>
-							<select class="custom-select form-control" name="akses_level">
-								<option value="admin" <?php if ($edit->akses_level=='admin'){echo "selected";} ?>>admin</option>
-								<option value="user" <?php if ($edit->akses_level=='user'){echo "selected";} ?>>user</option>
-							</select>  
+							<input type="text" class="form-control"  value="<?php echo $edit->akses_level ?>"  name="akses_level" readonly>
 						</div>
 						<div class="form-group">
 							<label>Status User</label>
@@ -66,23 +64,11 @@
 							</select>  
 						</div>
 						<div class="form-group">
-							<label>Upload Foto</label>
-							<input type="file" class="form-control"  name="foto">
-							<input class="form-control" name="gambar_lama" id="gambar_lama" type="text" value="<?php echo $edit->foto ?>" hidden>
+							<label>Surat Izin</label>
+								<input type="text" class="form-control" value="<?php echo $edit->file_user ?>" readonly>
+							<p style="padding-left: 10px; margin-top: 10px;"><a href="<?php echo base_url('dokumen/dok_user/'.$edit->file_user); ?>"><i class="fa fa-download pr-2"></i>Lihat Surat</a></p>              
 						</div>
 					</div>  
-				</div>  
-			</div>
-
-			<div class="col-md-12" style="margin-top: 10px;">  
-				<div class="card">
-					<div class="card-body">   
-						<div class="form-group">
-							<label>File User</label>
-							<br><textarea id="editor1"  name="file_user" required ><?php echo $edit->file_user ?></textarea>
-						</div>
-						<button type="submit" class="btn btn-primary">Submit</button>
-					</div>
 				</div>  
 			</div>
 		</div>

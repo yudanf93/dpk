@@ -60,8 +60,11 @@
           </div>
         </div>
       </div>
-      <div id="copyright">
-        <p class="copyright-text">Copyright &copy DPK 2020</p>
+
+      <div id="copyright" style="text-align: center;">
+       <a href="<?php echo base_url('temukan') ?>" class="copyright-text">Temukan</a> | 
+       <a href="<?php echo base_url('panduan') ?>" class="copyright-text">Panduan</a> | 
+       <a class="copyright-text">Copyright &copy DPK 2020</a>
       </div>
     </div>
   </footer>
@@ -78,5 +81,23 @@
       $('#example').DataTable();
     } );
   </script>
+  <!-- script javascript upload file -->
+<script type="text/javascript">
+document.getElementById("file_pdf").onchange = function (e) {
+    document.getElementById("upload_filed").innerHTML = "<label class='btn btn-karir'>"+ e.target.files[0].name+"</label>";
+    document.getElementById("uploadDoc").value  = this.value;
+};
+</script>
+<!-- script javascript upload file -->
+<script type="text/javascript">
+  document.getElementById("surat_lamar").onchange = function (e) {
+    document.getElementById("upload_surat").innerHTML  = "<label class='btn btn-karir'>"+ e.target.files[0].name+"</label>";
+    document.getElementById("uploadSurat").value  = this.value;
+};
+document.getElementById("doc_lamar").onchange = function (e) {
+    document.getElementById("upload_doc").innerHTML = "<label class='btn btn-karir'>"+ e.target.files[0].name+"</label>";
+    document.getElementById("uploadDoc").value  = this.value;
+};
+</script>
 </body>
 </html>

@@ -40,7 +40,9 @@ class Login extends CI_Controller {
       $email        = $i->post('email_user');     
       $password     = md5($i->post('passsword_user'));
       $check_login  = $this->M_login->login($email, $password);
-
+      // echo "<pre>";
+      // print_r($check_login);
+      // exit();
       if ($check_login) {
         $this->session->set_userdata('online',true);
         $this->session->set_userdata('email_user', $email);
@@ -51,6 +53,10 @@ class Login extends CI_Controller {
 
         if($this->session->userdata('akses_level') == 'admin'){
           redirect(site_url('admin/dashboard'), 'refresh');
+        }else if ($check_login->status_user=='0') {
+          $this->session->set_userdata('online',false);
+        $this->session->set_flashdata('pesan', '<center><strong>Akun anda Belum di Verifikasi oleh Admin</strong></center>');
+        redirect(site_url('home'), 'refresh');
         }else if($this->session->userdata('akses_level') == 'user'){
           redirect(site_url('user/profil'), 'refresh');
         }

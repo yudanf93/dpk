@@ -26,11 +26,7 @@
        			<tr>
        				<th>No</th>
        				<th>Nama</th>
-              <th>Alamat</th>
-              <th>Kota</th>
-              <th>Provinsi</th>
        				<th>No HP</th>
-       				<th>File</th>
        				<th>Email</th> 
        				<th>Akses Level</th>
               <th>Status</th>
@@ -38,18 +34,14 @@
        			</tr>
        		</thead>
        		<tbody>
-       			<?php
+       			<?php   
        			$no = 1;
        			foreach ($user as $user):
        				?>
        				<tr>
        					<td><?php echo $no; ?></td>
        					<td><?php echo $user->nama_user; ?></td>
-       					<td><?php echo $user->alamat_user; ?></td>
-       					<td><?php echo $user->regency_name; ?></td>
-       					<td><?php echo $user->province_name; ?></td>
        					<td><?php echo $user->nohp_user; ?></td>
-                <td><?php echo $user->file_user; ?></td>
                 <td><?php echo $user->email_user; ?></td>
        					<td><?php echo $user->akses_level; ?></td>
                 <td>
