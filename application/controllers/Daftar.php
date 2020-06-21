@@ -57,7 +57,9 @@ class Daftar extends CI_Controller {
 			}else{
 			$data = array(
 				'nama_user'     =>  $i->post('nama_user'),
+				'no_surat'     =>  $i->post('no_surat'),
 				'email_user'    =>  $i->post('email_user'),
+				'status_user'    =>  '0',
 				'password_user'	=>  MD5($i->post('password_user')),
 				'foto'          =>  '0',
 				'akses_level'   =>  $i->post('akses_level'),
@@ -66,17 +68,17 @@ class Daftar extends CI_Controller {
 			);
 
 			$this->M_user->add($data);
-			$this->send_konfirmasi($data['email_user'],$data['nama_user'],$data['file_user']);
+			$this->send_konfirmasi($data['email_user'],$data['nama_user'],$data['no_surat']);
 			redirect('/home/');
 		}
 	}
 }
 
-public function send_konfirmasi($email_user,$nama_user,$file_user)
+public function send_konfirmasi($email_user,$nama_user,$no_surat)
 { 
 	$data['email_user'] = $email_user;
 	$data['nama_user'] = $nama_user;
-	$data['file_user'] = $file_user;
+	$data['no_surat'] = $no_surat;
     // echo "<pre>";
     // print_r($data);
 	$this->load->view('user/v_email_register', $data);
@@ -85,18 +87,19 @@ public function send_konfirmasi($email_user,$nama_user,$file_user)
 	$message  = $this->load->view('user/v_email_register',$data,true);
     $config   = array(
       'protocol'    => 'smtp',
-      'smtp_host'   => 'ssl://mail.temanukai.com',
+      'smtp_host'   => 'ssl://mail.sevenpion.com',
       'smtp_port'   => '465',
-      'smtp_user'   => 'admin@temanukai.com',
-      'smtp_pass'   => '@temanukai123',
+      'smtp_user'   => 'developers@sevenpion.com',
+      'smtp_pass'   => 'qweasdzxc123',
       'mailtype'    => 'html',
       'charset'     => 'utf-8',
       'wordwrap'    => TRUE
+
     );
 	$this->load->library('email', $config);
     // $this->email->initialize($config); 
 	$this->email->set_newline("\r\n");
-	$this->email->from('admin@temanukai.com','Direktori Profesi Keuangan (DPK)');
+	$this->email->from('developers@sevenpion.com','Direktori Profesi Keuangan (DPK)');
 	$this->email->to($data['email_user']);
 	$this->email->subject($subject);
 	$this->email->message($message);

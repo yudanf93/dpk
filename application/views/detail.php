@@ -5,7 +5,7 @@
   <div id="blog">
     <div class="row">
       <div class="col-md-9">
-        <img class="img-fluid artikel" src="<?php echo base_url().'img/img_artikel/'.$detail->gambar_artikel ?>" alt="judul-artikel">
+        <img class="img-fluid artikel" src="<?php echo base_url().'img/img_artikel/'.$detail->gambar_artikel ?>" alt="foto_user">
         <div class="row">
           <div class="col-md-8">
             <h2 class="artikel-title"><?php echo $detail->judul_artikel ?></h2>

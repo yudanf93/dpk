@@ -39,8 +39,8 @@ class M_artikel extends CI_Model {
 	public function select_artikel() {
 		$this->db->select('artikel.*, kategori_artikel.*, user.*');   
 		$this->db->from('artikel');
-		$this->db->join('user', 'user.id_user = artikel.id_user', 'left');
 		$this->db->join('kategori_artikel', 'kategori_artikel.id_kategori_artikel = artikel.id_kategori_artikel', 'left');
+		$this->db->join('user', 'user.id_user = artikel.id_user', 'left');
 		$this->db->order_by('id_artikel', 'DESC');
 		$query  = $this->db->get();
 		return $query->result();
@@ -54,21 +54,22 @@ class M_artikel extends CI_Model {
 		$this->db->order_by('id_artikel', 'DESC');
       	$query  = $this->db->get();
      	 return $query->result();
-    }
+    }     
+    public function select_artikel_publish_user() {
+		$this->db->select('artikel.*, kategori_artikel.*, user.*');   
+		$this->db->from('artikel');
+      	$this->db->where('status_artikel', '1');
+		$this->db->join('user', 'user.id_user = artikel.id_user', 'left');
+		$this->db->join('kategori_artikel', 'kategori_artikel.id_kategori_artikel = artikel.id_kategori_artikel', 'left');
+		$this->db->order_by('id_artikel', 'DESC');		
+        $this->db->limit(3);
+      	$query  = $this->db->get();
+     	 return $query->result();
+    }   
     public function select_artikel_pending() {
 		$this->db->select('artikel.*, kategori_artikel.*, user.*');   
 		$this->db->from('artikel');
       	$this->db->where('status_artikel', '0');
-		$this->db->join('user', 'user.id_user = artikel.id_user', 'left');
-		$this->db->join('kategori_artikel', 'kategori_artikel.id_kategori_artikel = artikel.id_kategori_artikel', 'left');
-		$this->db->order_by('id_artikel', 'DESC');
-      	$query  = $this->db->get();
-      	return $query->result();
-    }
-    public function select_artikel_reviewer() {
-		$this->db->select('artikel.*, kategori_artikel.*, user.*');   
-		$this->db->from('artikel');
-      	$this->db->where('status_artikel', '2');
 		$this->db->join('user', 'user.id_user = artikel.id_user', 'left');
 		$this->db->join('kategori_artikel', 'kategori_artikel.id_kategori_artikel = artikel.id_kategori_artikel', 'left');
 		$this->db->order_by('id_artikel', 'DESC');
@@ -135,6 +136,21 @@ class M_artikel extends CI_Model {
 		$this->db->where('id_artikel',$id_artikel);
 		$this->db->update('artikel',$data);
 	}
+
+	public function get_kategori_list($limit, $start){
+		$this->db->join('kategori_artikel', 'kategori_artikel.id_kategori_artikel = artikel.id_kategori_artikel', 'left');
+		$this->db->join('user', 'user.id_user = artikel.id_user', 'left');
+        $this->db->where('status_artikel', '1');	
+        $this->db->order_by('id_artikel', 'DESC');
+        $query = $this->db->get('artikel', $limit, $start);
+        return $query;
+    }
+       public function jumlah_kategori(){
+        $this->db->select('*');
+        $query  = $this->db->get('artikel')->num_rows();
+        return $query;   
+
+    }
 
 
 }

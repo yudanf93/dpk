@@ -9,7 +9,7 @@ class Home extends CI_Controller {
 	}
 
 	public function index() {
-		$artikel = $this->M_artikel->select_artikel_publish();  
+		$artikel = $this->M_artikel->select_artikel_publish_user();  
 		
 		$data = array(
 			'title' => 'Home DPK',

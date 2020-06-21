@@ -12,8 +12,8 @@ class M_user extends CI_Model {
 		$this->db->where('id_user',$id_user);
 		$this->db->select('*');
 		$this->db->from('user');
-		$query =$this->db->get();
-		return $query->row();
+		$query =$this->db->get();    
+		return $query->row();     
 	}
 	
 	public function pilih_user() {
@@ -45,6 +45,34 @@ class M_user extends CI_Model {
 		$query  = $this->db->get();
 		return $query->result();
 	}
+	public function list_user() {
+		$this->db->select('user.*, regencys.*, provinces.*');   
+		$this->db->from('user');
+		$this->db->where('akses_level','user');
+		$this->db->where('status_user','1');
+		$this->db->join('regencys', 'regencys.regency_id = user.regency_id', 'left');
+		$this->db->join('provinces', 'provinces.province_id = user.province_id', 'left');
+		$this->db->order_by('id_user', 'DESC');
+		$query  = $this->db->get();
+		return $query->result();
+	}
+
+	public function get_list_user($limit, $start) {
+		$this->db->where('user.akses_level','user');
+		$this->db->where('user.status_user','1');
+		$this->db->join('regencys', 'regencys.regency_id = user.regency_id', 'left');
+		$this->db->join('provinces', 'provinces.province_id = user.province_id', 'left');
+		$this->db->order_by('id_user', 'DESC');
+		$query  = $this->db->get('user', $limit, $start);
+		return $query->result();
+	}
+
+	   public function jumlah_user(){
+        $this->db->select('*');
+        $query  = $this->db->get('user')->num_rows();
+        return $query;   
+
+    }
 	public function delete($data) {
 		$this->db->where('id_user',$data['id']);
 		$this->db->delete('user');
@@ -54,9 +82,11 @@ class M_user extends CI_Model {
 	}   
 
 	public function detail($id_user) {
-		$this->db->select('*');
+		$this->db->select('user.*, regencys.*, provinces.*');
 		$this->db->from('user');
 		$this->db->where('id_user', $id_user);
+		$this->db->join('regencys', 'regencys.regency_id = user.regency_id', 'left');
+		$this->db->join('provinces', 'provinces.province_id = user.province_id', 'left');
 		$query  = $this->db->get();
 		return $query->row();
 	}

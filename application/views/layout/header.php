@@ -108,10 +108,11 @@
                 </div>
                 <div class="input-group mb-3">
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile02" name="file_user">
-                    <label class="custom-file-label" for="inputGroupFile02">Lampirkan surat izin</label>
+                    <input type="file" class="custom-file-input" id="file_pdf" name="file_user">
+                    <label class="custom-file-label" for="upload_file" id="upload_file">Lampirkan surat izin</label>
                   </div>
                 </div>
+
                 <button type="submit" class="btn btn-success c login pl-5 pr-5">Daftar</button>
               </form>              
               <?php echo form_close(); ?>
