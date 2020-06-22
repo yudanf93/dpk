@@ -65,17 +65,17 @@
             <label class="title-manajemen">Penulis artikel</label>
             <input type="text" class="form-control" name="id_user" value="<?php echo $user->nama_user ?>" readonly>
           </div>
-          <div class="form-group">
+            <div class="form-group">
             <label class="title-manajemen">Status artikel</label>
-              <select class="custom-select form-control " name="status_artikel">
-                <option value="2" <?php if ($edit->status_artikel==2){echo "selected";} ?>>Reviewer</option>
-                <option value="1" <?php if ($edit->status_artikel==1){echo "selected";} ?>>Publish</option>
-                <option value="0" <?php if ($edit->status_artikel==0){echo "selected";} ?>>Pending</option>
-              </select>  
+            <?php if ($edit->status_artikel=='0'){ ?>  
+              <p class="form-control" readonly>Tidak</p>
+            <?php }else {?>
+              <p class="form-control" readonly>Aktif</p>
+            <?php } ?>
           </div>
           <div class="form-group">
             <label class="title-manajemen">Tanggal publish</label>
-            <input type="date" class="form-control" value="<?php echo $edit->tgl_publish ?>" name="tgl_publish">>
+            <input type="date" class="form-control" value="<?php echo $edit->tgl_publish ?>" name="tgl_publish">
           </div>
         </form>
       </div>

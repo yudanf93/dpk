@@ -12,11 +12,12 @@ class Detail extends CI_Controller {
 
 	public function blog($slug){
 	$detail = $this->M_artikel->detail_user($slug);  
+
 	$relasi = $this->M_relation_profesi->relasi_user($slug);  
 
 	$data = array(
-		'title' => 'Home DPK',
-		'metades' => 'DPK ini aja', 
+		'title' => 'Direktori Profesi Keuangan (DPK)',
+		'metades' => 'Direktori Profesi Keuangan (DPK) adalah portal informasi para professional bidang keuangan yang bermanfaat bagi pelaku bisnis untuk menemukan profesi yang dibutuhkan sesuai dengan permasalahan yang dihadapinya. DPK berfungsi mempertemukan antara professional dengan pelaku bisnis.', 
 		'isi' 	=> 'detail',
 		'detail' =>  $detail,
 		'relasi' =>  $relasi

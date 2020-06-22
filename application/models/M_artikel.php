@@ -26,7 +26,7 @@ class M_artikel extends CI_Model {
       $this->db->from('artikel');
       $this->db->where('status_artikel', '0');
       $pending  =   $this->db->count_all_results();
-      return $pending;
+      return $pending;  
     }
     public function count_reviewer() { 
       $this->db->select('*');   
@@ -83,6 +83,18 @@ class M_artikel extends CI_Model {
 		$this->db->where('artikel.id_user', $this->session->userdata('id_user'));
 		$this->db->join('user', 'user.id_user = artikel.id_user', 'left');
 		$this->db->join('kategori_artikel', 'kategori_artikel.id_kategori_artikel = artikel.id_kategori_artikel', 'left');
+		$this->db->order_by('id_artikel', 'DESC');
+		$query  = $this->db->get();
+		return $query->result();
+	}
+
+	public function artikel_profesional($slug) {
+		$this->db->select('artikel.*, kategori_artikel.*, user.*');   
+		$this->db->from('artikel');
+		$this->db->where('artikel.status_artikel','1', $slug); 
+        $this->db->where('user.slug',$slug);
+		$this->db->join('user', 'user.id_user = artikel.id_user', 'left');
+		$this->db->join('kategori_artikel', 'kategori_artikel.id_kategori_artikel =   artikel.id_kategori_artikel', 'left');
 		$this->db->order_by('id_artikel', 'DESC');
 		$query  = $this->db->get();
 		return $query->result();
@@ -147,6 +159,27 @@ class M_artikel extends CI_Model {
     }
        public function jumlah_kategori(){
         $this->db->select('*');
+        $query  = $this->db->get('artikel')->num_rows();
+        return $query;   
+
+    }
+
+    // Controller Detail Profesional
+    public function get_list_artikel_profesional($slug,$limit, $start){
+		$this->db->join('kategori_artikel', 'kategori_artikel.id_kategori_artikel = artikel.id_kategori_artikel', 'left');
+		$this->db->join('user', 'user.id_user = artikel.id_user', 'left');
+        $this->db->where('user.slug',$slug);	
+        $this->db->where('status_artikel', '1',$slug);
+        $this->db->order_by('id_artikel', 'DESC');
+        $query = $this->db->get('artikel', $limit, $start);
+        return $query;
+    }
+       public function jumlah_artikel_profesional($slug){
+        $this->db->select('*');
+       	$this->db->join('kategori_artikel', 'kategori_artikel.id_kategori_artikel = artikel.id_kategori_artikel', 'left');
+		$this->db->join('user', 'user.id_user = artikel.id_user', 'left');		
+        $this->db->where('status_artikel', '1',$slug);
+        $this->db->where('user.slug',$slug);
         $query  = $this->db->get('artikel')->num_rows();
         return $query;   
 

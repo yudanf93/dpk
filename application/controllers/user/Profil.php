@@ -17,8 +17,8 @@ class Profil extends CI_Controller {
    // print_r($get_user); 
    // exit();
 		$data = array(
-			'title' => 'Home DPK',
-			'metades' => 'DPK ini aja',
+			'title' => 'Direktori Profesi Keuangan (DPK)',
+			'metades' => 'Direktori Profesi Keuangan (DPK) adalah portal informasi para professional bidang keuangan yang bermanfaat bagi pelaku bisnis untuk menemukan profesi yang dibutuhkan sesuai dengan permasalahan yang dihadapinya. DPK berfungsi mempertemukan antara professional dengan pelaku bisnis.',
 			'isi' 	=> 'user/v_profil',
     		'get_user' => $get_user
 		);

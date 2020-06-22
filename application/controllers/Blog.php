@@ -16,11 +16,11 @@ class Blog extends CI_Controller {
 	$blog_user = $this->M_artikel->select_artikel_publish();
 	$kategori = $this->M_kategori_artikel->select_kategori_artikel();  
 	$data = array(
-		'title' => 'Home DPK',
-		'metades' => 'DPK ini aja', 
-		'isi' 	=> 'blog',
-		'blog_user' =>  $blog_user,
-		'kategori' =>  $kategori
+        'title' => 'Direktori Profesi Keuangan (DPK)',
+        'metades' => 'Direktori Profesi Keuangan (DPK) adalah portal informasi para professional bidang keuangan yang bermanfaat bagi pelaku bisnis untuk menemukan profesi yang dibutuhkan sesuai dengan permasalahan yang dihadapinya. DPK berfungsi mempertemukan antara professional dengan pelaku bisnis.',
+        'isi' 	=> 'blog',
+        'blog_user' =>  $blog_user,
+        'kategori' =>  $kategori
 	);     
 		        //konfigurasi pagination
 		$jumlah_data = $this->M_artikel->jumlah_kategori(); 

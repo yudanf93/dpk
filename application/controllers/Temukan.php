@@ -12,9 +12,7 @@ class Temukan extends CI_Controller {
 
 	public function index(){
 	$user = $this->M_user->list_user(); 
-		// echo "<pre>";
-		// print_r($user);
-		// exit();
+
 
 	$data = array(
 		'title' => 'Direktori Profesi Keuangan (DPK)',
@@ -24,6 +22,9 @@ class Temukan extends CI_Controller {
 	);     
 			//konfigurasi pagination
 		$jumlah_data = $this->M_user->jumlah_user();
+        //         echo "<pre>";
+        // print_r($jumlah_data);
+        // exit();
         $config['base_url'] = site_url('temukan/index'); //site url
         $config['total_rows'] = $jumlah_data; //total row
         $config['per_page'] = 9;  //show record per halaman

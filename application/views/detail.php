@@ -1,5 +1,5 @@
   <div id="banner">
-    <h1 class="banner-title">Cara Mengatur Keuangan</h1>
+    <h1 class="banner-title"><?php echo $detail->judul_artikel ?></h1>
   </div>
 
   <div id="blog">
@@ -12,7 +12,7 @@
           </div>
           <div class="col-md-4">
             <div class="float-right date">
-              <i class="fa fa-clock-o"></i> 4 Juni 2020
+              <i class="fa fa-clock-o"></i> <?php $date=date_create($detail->tgl_publish); echo date_format($date, 'd F Y'); ?>
             </div>
           </div>
         </div>
