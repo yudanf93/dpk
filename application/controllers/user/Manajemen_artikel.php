@@ -156,13 +156,6 @@ class Manajemen_artikel extends CI_Controller {
 				'required'  =>  'Anda belum mengisikan Detail Artikel')
 		);
 		$valid->set_rules(
-			'status_artikel',
-			'status_artikel',
-			'required',
-			array(
-				'required'  =>  'Anda belum mengisikan Status Artikel.')
-		);
-		$valid->set_rules(
 			'tgl_publish',
 			'tgl_publish',
 			'required',
@@ -203,7 +196,6 @@ class Manajemen_artikel extends CI_Controller {
 					'detail_artikel'=>  $i->post('detail_artikel'),
 					'id_user'	 	=>  $user->id_user,
 					'id_kategori_artikel' 	=>  $i->post('id_kategori_artikel'),
-					'status_artikel'=>  $i->post('status_artikel'),
 					'tgl_publish'   =>  $i->post('tgl_publish'),
 					'gambar_artikel'=>  $i->post('gambar_lama'),
 					'created'      	=>  $i->post('created'),
@@ -225,7 +217,6 @@ class Manajemen_artikel extends CI_Controller {
 					'detail_artikel'=>  $i->post('detail_artikel'),
 					'id_user'	 	=>  $user->id_user,
 					'id_kategori_artikel' =>  $i->post('id_kategori_artikel'),
-					'status_artikel'=>  $i->post('status_artikel'),
 					'tgl_publish'   =>  $i->post('tgl_publish'),
 					'gambar_artikel'=>  $this->upload->data('file_name'),
 					'created'      	=>  $i->post('created'),

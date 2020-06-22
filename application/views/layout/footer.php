@@ -11,7 +11,7 @@
             <h5 class="widget-title">Blog</h5>
             <ul>
               <li>
-                  <a href="panduan.html">Panduan</a>
+                  <a href="<?php echo base_url('panduan') ?>">Panduan</a>
               </li>
               <li>
                   <a href="#">Kategori 1</a>
@@ -64,7 +64,7 @@
       <div id="copyright" style="text-align: center;">
        <a href="<?php echo base_url('temukan') ?>" class="copyright-text">Temukan</a> | 
        <a href="<?php echo base_url('panduan') ?>" class="copyright-text">Panduan</a> | 
-       <a class="copyright-text">Copyright &copy DPK 2020</a>
+       <a  href=""class="copyright-text">Copyright &copy DPK 2020</a>
       </div>
     </div>
   </footer>

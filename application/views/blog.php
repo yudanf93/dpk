@@ -16,7 +16,7 @@
                 <p class="card-text"><?php echo $blog_user->nama_kategori_artikel ?></p>
                 <hr>
                 <div class="float-left date">
-                  <i class="fa fa-clock-o"></i> <?php echo $blog_user->tgl_publish ?>
+                  <i class="fa fa-clock-o"></i> <?php $date=date_create($blog_user->tgl_publish); echo date_format($date, 'd F Y'); ?>
                 </div>
                 <div class="float-right det">
                   <a href="<?php echo base_url('detail/blog/'.$blog_user->slug_artikel) ?>"><button type="button" class="btn btn-success c">Detail</button></a>

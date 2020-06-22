@@ -51,8 +51,8 @@
                 </td>
                 <td><?php echo $artikel->tgl_publish; ?></td>
                 <td>
-                  <a href="<?php echo base_url('user/manajemen_artikel/edit/'.$artikel->slug_artikel) ?>" style="color: #91A440">Edit</a> |
-                  <a href="<?php echo base_url('user/manajemen_artikel/delete') ?>" style="color: red">Hapus</a>
+                  <a href="<?php echo base_url('user/manajemen_artikel/edit/'.$artikel->slug_artikel) ?>" style="color: #91A440"><button class="btn btn-sm btn-success">Edit</button></a> |
+                 <a href="<?php echo base_url('user/manajemen_artikel/delete') ?>" style="color: red"> <button class="btn btn-sm btn-danger">Hapus</button></a>
                 </td>
             </tr>
             <?php

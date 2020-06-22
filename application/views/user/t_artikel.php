@@ -48,15 +48,10 @@
               <label class="title-manajemen">Penulis artikel</label>
               <input type="text" class="form-control" name="id_user" value="<?php echo $user->nama_user ?>" readonly>
             </div>
-            <div class="form-group">
-              <label class="title-manajemen">Status artikel</label>
-              <select class="custom-select form-control" id="status_artikel" name="status_artikel">
+              <select class="custom-select form-control" id="status_artikel" name="status_artikel" hidden>
                 <option selected>Pilih jenis Status Artikel</option>
-                <option value="1">Publish</option>
-                <option value="2">Reviewer</option>
                 <option value="0">Pending</option>
-              </select>  
-            </div>
+              </select> 
             <div class="form-group">
               <label class="title-manajemen">Tanggal publish</label>
               <input type="date" class="form-control" placeholder="Masukkan Nama Kota" name="tgl_publish">

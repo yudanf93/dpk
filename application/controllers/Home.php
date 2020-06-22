@@ -12,8 +12,8 @@ class Home extends CI_Controller {
 		$artikel = $this->M_artikel->select_artikel_publish_user();  
 		
 		$data = array(
-			'title' => 'Home DPK',
-			'metades' => 'DPK ini aja', 
+			'title' => 'Direktori Profesi Keuangan (DPK)',
+			'metades' => 'Direktori Profesi Keuangan (DPK) adalah portal informasi para professional bidang keuangan yang bermanfaat bagi pelaku bisnis untuk menemukan profesi yang dibutuhkan sesuai dengan permasalahan yang dihadapinya. DPK berfungsi mempertemukan antara professional dengan pelaku bisnis.',
 			'isi' 	=> 'index',
 			'artikel' =>  $artikel
 		);

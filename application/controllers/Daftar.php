@@ -14,7 +14,7 @@ class Daftar extends CI_Controller {
 		$artikel = $this->M_artikel->select_artikel_publish();  
 		
 		$valid = $this->form_validation;
-		$valid->set_rules('email_user', '<strong>Email yang anda masukkan sudah terdaftar</strong>', 'required|trim|is_unique[user.email_user]|min_length[11]|max_length[40]|valid_email');
+		$valid->set_rules('email_user', '<strong>Email yang anda masukkan sudah terdaftar</strong>', 'required|trim|is_unique[user.email_user]|min_length[6]|max_length[40]|valid_email');
 
 		$valid->set_rules(
 			'password_user',

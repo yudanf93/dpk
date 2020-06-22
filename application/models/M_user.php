@@ -45,6 +45,8 @@ class M_user extends CI_Model {
 		$query  = $this->db->get();
 		return $query->result();
 	}
+
+	// Controller Temukan
 	public function list_user() {
 		$this->db->select('user.*, regencys.*, provinces.*');   
 		$this->db->from('user');
@@ -57,6 +59,7 @@ class M_user extends CI_Model {
 		return $query->result();
 	}
 
+	// Controller Temukan
 	public function get_list_user($limit, $start) {
 		$this->db->where('user.akses_level','user');
 		$this->db->where('user.status_user','1');
@@ -67,8 +70,24 @@ class M_user extends CI_Model {
 		return $query->result();
 	}
 
+	// Controller DETAIL PROFESIONAL
+	public function detail_profesional($slug) {
+		$this->db->select('user.*, regencys.*, provinces.*');   
+		$this->db->from('user');
+		$this->db->where('slug', $slug);
+		$this->db->where('akses_level','user', $slug);
+		$this->db->where('status_user','1' , $slug);
+		$this->db->join('regencys', 'regencys.regency_id = user.regency_id', 'left');
+		$this->db->join('provinces', 'provinces.province_id = user.province_id', 'left');
+		$this->db->order_by('id_user', 'DESC');
+		$query  = $this->db->get();
+		return $query->row();
+	}
+
 	   public function jumlah_user(){
-        $this->db->select('*');
+        $this->db->select('*');        
+		$this->db->where('akses_level','user');
+		$this->db->where('status_user','1');
         $query  = $this->db->get('user')->num_rows();
         return $query;   
 

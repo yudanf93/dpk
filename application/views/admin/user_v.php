@@ -30,7 +30,7 @@
        				<th>Email</th> 
        				<th>Akses Level</th>
               <th>Status</th>
-       				<th>Aksi</th>
+       				<th>Aksi</th>  
        			</tr>
        		</thead>
        		<tbody>

@@ -30,9 +30,9 @@ class Login extends CI_Controller {
     
     if ($valid->run() == false) {
       $data = array(
-        'title'   => 'Login Direktori Profesi Keuangan',
-        'metades' => 'Direktori Profesi Keuangan',
-        'isi'   => '-'
+        'title' => 'Direktori Profesi Keuangan (DPK)',
+        'metades' => 'Direktori Profesi Keuangan (DPK) adalah portal informasi para professional bidang keuangan yang bermanfaat bagi pelaku bisnis untuk menemukan profesi yang dibutuhkan sesuai dengan permasalahan yang dihadapinya. DPK berfungsi mempertemukan antara professional dengan pelaku bisnis.',
+        'isi'   => 'index'
       );  
       $this->load->view('layout/wrapper', $data, false);
     } else {   
@@ -45,9 +45,9 @@ class Login extends CI_Controller {
       // exit();
       if ($check_login) {
         $this->session->set_userdata('online',true);
+        $this->session->set_userdata('akses_level', $check_login->akses_level);
         $this->session->set_userdata('email_user', $email);
         $this->session->set_userdata('nama_user', $check_login->nama_user);
-        $this->session->set_userdata('akses_level', $check_login->akses_level);
         $this->session->set_userdata('foto', $check_login->foto);
         $this->session->set_userdata('id_user', $check_login->id_user);
 
@@ -55,15 +55,16 @@ class Login extends CI_Controller {
           redirect(site_url('admin/dashboard'), 'refresh');
         }else if ($check_login->status_user=='0') {
           $this->session->set_userdata('online',false);
-        $this->session->set_flashdata('pesan', '<center><strong>Akun anda Belum di Verifikasi oleh Admin</strong></center>');
-        redirect(site_url('home'), 'refresh');
+          $this->session->set_flashdata('pesan', '<center><strong>Akun anda Belum di Verifikasi oleh Admin</strong></center>');
+          redirect(site_url('home'), 'refresh');         
+          $this->session->sess_destroy();
         }else if($this->session->userdata('akses_level') == 'user'){
           redirect(site_url('user/profil'), 'refresh');
         }
-          
+
       } else {
         $this->session->set_userdata('online',false);
-        $this->session->set_flashdata('pesan', '<center><strong>Email dan password tidak cocok... !</strong></center>');
+        $this->session->set_flashdata('pesan', '<center><strong> Email dan password tidak cocok... !</strong></center>');
         redirect(site_url('home'), 'refresh');
       }
     }
